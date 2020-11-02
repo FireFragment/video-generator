@@ -1,0 +1,2 @@
+C:\Users\snase\source\repos\C++\video-generator\Debug\video-generator.exe
+C:\Users\snase\source\repos\C++\video-generator\Debug\video-generator.pdb
