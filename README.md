@@ -1,3 +1,5 @@
 # Video generator
-Generate powerful video from plain text in seconds!
+**DO NOT USE, ONLY DEVELOPMENT DRAFT!**
+
+Generate powerful video from plain text and music in seconds!
 It's only draft, so result isn't so good. But future updates will be here soon!
