@@ -1,8 +1,4 @@
 #include "myFunctions.h"
-#include <list> 
-#include <iostream>
-#include <algorithm>
-#include <regex>
 using namespace std;
 
 list<string> myFunctions::splitStringByDelimiter(string toSplit, string delimiter) {
@@ -36,6 +32,52 @@ list<string> myFunctions::splitStringByDelimiters(string toSplit, list<string> d
 	for (sregex_iterator i = words_begin; i != words_end; ++i)
 		returnValue.push_back((*i).str());
 	return returnValue;
+}
+
+list<TimeStamp> myFunctions::getBeats(string url, float sensitivity, unsigned short int count, bool echoProgress)
+{
+	BeatDetector::Instance()->loadSystem();
+	BeatDetector::Instance()->LoadSong(1024, _strdup(url.c_str()));
+	BeatDetector::Instance()->sensitivity = sensitivity;
+	BeatDetector::Instance()->setStarted(true);
+	bool firstBeat = true;
+
+	TimeStamp* localLastBeatOccured = 0;
+	list<TimeStamp> beats;
+	while (beats.size() <= count) {
+
+		BeatDetector::Instance()->update();
+		Sleep(10);
+
+		if (localLastBeatOccured != BeatDetector::Instance()->getLastBeat())
+		{
+			if (firstBeat)
+				firstBeat = false; 
+			else {
+
+				// Beat detected: info about is accesible by BeatDetector::Instance()->getLastBeat();
+
+				BeatDetector::Instance()->updateTime();
+				localLastBeatOccured = BeatDetector::Instance()->getLastBeat();
+
+				beats.push_back(*localLastBeatOccured);
+				if (echoProgress)
+					cout << "Analyzing music: " << beats.size() - 1 << "/" << count << endl;
+			}
+		}
+	}
+	BeatDetector::Instance()->setStarted(false);
+
+
+	return beats;
+}
+
+string myFunctions::doubleToString(double num)
+{
+	if (fmod(num, 1) == 0) {
+		return to_string(num);
+	}
+	return to_string(num).erase(to_string(num).find_last_not_of('0') + 1, string::npos);
 }
 
 

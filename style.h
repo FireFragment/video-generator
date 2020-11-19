@@ -1,7 +1,7 @@
 #pragma once
 #include "transition.h";
-#include <list>;
-#include <string>;
+#include <list>
+#include <string>
 #include <algorithm>
 using namespace std;
 /// <summary>Defines different styles of videos. 
@@ -10,11 +10,12 @@ class style
 {
 public:
 	style();
-	//	list<transition> transitions = {transition()};
 	list<transition> normalTransitions = { transition() };
-	list<transition> accentTransitions;
-	list<transition> endTransitions;
-	double speed = 0.3;
+	/// <summary>
+	/// Adding transition means transition, that keeps text on screen, it just adds new text.
+	/// </summary>
+	list<transition> addingTransitions;
+	double speed = 1;
 	/// <summary>
 	/// Speed * this value = spaces between sentences in seconds.
 	/// </summary>
@@ -27,5 +28,9 @@ public:
 	string accentFont = "Permanent Marker";
 
 	string baseCSS; // Assigned in constructor.
+	string musicURL;
+
+	/// <returns>Escapesd musicURL (all \ replaces with /)</returns>
+	string getEscapedMusicURL();
 };
 

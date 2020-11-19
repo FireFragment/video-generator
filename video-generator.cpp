@@ -1,7 +1,10 @@
-#include <iostream>
+﻿#include <iostream>
+#include <string>
 #include <fstream>
 #include <list>
+#include <Windows.h>
 #include "myFunctions.h"
+#include "BeatDetector/Detector/BeatDetector.h"
 #include "video.h"
 using namespace std;
 
@@ -17,6 +20,13 @@ void showlist(list <string> g)
 int main()
 {
    video video("This is my video generator. It's only draft, so result isn't so good. But future updates will be here soon!");
-   cout << "MINIMIZED HTML CODE" << endl << "->  Create .html file and paste there this:" << endl << endl << video.generate() << endl << endl;
-   system("pause");
+   cout << "DEVELOPMENT VERSION, DO NOT USE!\n\nIt's recommended to use rhytmical musics.\nEnter URL of music: " ;
+   getline(cin, video.style.musicURL);
+   // Create and open a text file
+   ofstream OutFile("generated.html");
+   OutFile << video.generate();
+
+   // Close the file
+   OutFile.close();
+   system("generated.html");
 }

@@ -36,6 +36,12 @@
     <ClCompile Include="transition.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BeatDetector\Detector\BeatDetector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BeatDetector\Detector\TimeStamp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="video.h">
@@ -56,5 +62,35 @@
     <ClInclude Include="transition.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="BeatDetector\Detector\BeatDetector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BeatDetector\Detector\TimeStamp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BeatDetector\FMOD\inc\fmod.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BeatDetector\FMOD\inc\fmod.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BeatDetector\FMOD\inc\fmod_codec.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BeatDetector\FMOD\inc\fmod_dsp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BeatDetector\FMOD\inc\fmod_errors.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BeatDetector\FMOD\inc\fmod_memoryinfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BeatDetector\FMOD\inc\fmod_output.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="fmodex.dll" />
   </ItemGroup>
 </Project>

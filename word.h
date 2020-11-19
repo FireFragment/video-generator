@@ -13,7 +13,6 @@ public:
 	// TODO: Add accentutation 2 description or remove it.
 	/// <summary>
 	/// Importance of word in range 0 - 3.
-	/// <para>0: No accentutation, normal importance. 1: Automatically marked, accentutated by transition. 3: User-marked by IUPPERCASE, used special transitions</para>
 	/// </summary>
 	unsigned short int accentutation = 0;
 };

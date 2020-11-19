@@ -38,10 +38,8 @@ string transitionItem::generate(string actualWord, string previousWord, string p
 
 string transition::generateCode(string actualWord, string previousWord, string previousWords, unsigned int animId, style styleOfVid, unsigned short int accentuation) {
 	string returnValue;
-	for (list <transitionItem> ::iterator it = CSScode.begin(); it != CSScode.end(); ++it) {
-		transitionItem temporary = *it;
-		returnValue += temporary.generate(actualWord, previousWord, previousWords, animId, accentuation);
-	}
+	for (list <transitionItem> ::iterator it = CSScode.begin(); it != CSScode.end(); ++it) 
+		returnValue += (*it).generate(actualWord, previousWord, previousWords, animId, accentuation);
 	return returnValue;
 }
 transition::transition() {

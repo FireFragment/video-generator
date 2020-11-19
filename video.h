@@ -1,8 +1,12 @@
 #pragma once
 #include <string>
 #include <list> 
+#include <iostream>
+#include <ctime>
+#include <cstdlib>
 #include "sentence.h"
 #include "style.h"
+#include "myFunctions.h"
 using namespace std;
 
 class video
@@ -14,5 +18,8 @@ public:
 	string generate();
 	list <sentence> sentences;
 	style style;
+private:
+	/// <returns>Count of transitions in video.</returns>
+	unsigned short int getNeededTransitionsCount();
 };
 
