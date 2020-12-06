@@ -22,13 +22,19 @@ transition transition::pickTransitionFromListByIndex(list<transition> transition
 	return *it;
 }
 
+transition transition::emptyTransition()
+{
+	transition returnValue = transition();
+	returnValue.CSScode.clear();
+	return returnValue;
+}
+
 string transitionItem::generate(string actualWord, string previousWord, string previousWords, int animId, unsigned short int accentutation)
 {
 	string returnValue;
 	switch (type) {
 		case transitionItem_actualWord: {returnValue = actualWord; break;}
 		case transitionItem_previousWord: {returnValue = previousWord; break;}
-		case transitionItem_previousWords: {returnValue = previousWords; break;}
 		case transitionItem_animId: {returnValue = to_string(animId); break;}
 		case transitionItem_string: {returnValue = text; break; }
 		case transitionItem_accentuationCondition: {if (accentuationCondition_limit < accentutation) return accentuationCondition_ifBigger; else return accentuationCondition_ifSmaller; }
@@ -48,4 +54,30 @@ transition::transition() {
 
 transition::transition(list<transitionItem> CSScodeArg) {
 	CSScode = CSScodeArg;
+}
+
+transition operator+(const transition& t1, const transitionItem& i2)
+{
+	list<transitionItem> codeToReturn = t1.CSScode;
+	codeToReturn.push_back(i2);
+
+	return transition(transition(codeToReturn));
+}
+
+transition operator+(const transition& t1, const transitionItemType& i2)
+{
+	list<transitionItem> codeToReturn = t1.CSScode;
+	transitionItemType aa = transitionItemType(i2);
+	int aab = 0;
+	codeToReturn.push_back(transitionItem(i2));
+
+	return transition(transition(codeToReturn));
+}
+
+transition operator+(const transition& t1, const string& i2)
+{
+	list<transitionItem> codeToReturn = t1.CSScode;
+	codeToReturn.push_back(transitionItem(i2));
+
+	return transition(transition(codeToReturn));
 }

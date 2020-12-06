@@ -12,7 +12,6 @@ typedef enum transitionItemType
 	transitionItem_string,
 	transitionItem_actualWord,
 	transitionItem_previousWord,
-	transitionItem_previousWords,
 	transitionItem_animId,
 	transitionItem_accentuationCondition
 };
@@ -66,7 +65,7 @@ public:
 	/// <param name="previousWords"> defines disappeared part of sentence.</param>
 	/// <param name="animId"> is unique id of animation. Also defines animation name, eg. <c>anim0</c> if is animId 0.</param>
 	/// <param name="accentutation"> defines importance of <c>actualWord</c> in range 0-3</param>
-	/// <returns>@keyframes CSS code, eg. <example><code>@keyframes anim23{from{content:"Hello"}to{content:"guys"}}</code></example></returns>
+	/// <returns>@keyframes CSS code, eg. <example><code>"@keyframes anim23{from{content:"Hello"}to{content:"guys"}}"</code></example></returns>
 	string generateCode(string actualWord, string previousWord, string previousWords, unsigned int animId, style astyleOfVid, unsigned short int accentuation = 0);
 	/// <summary>
 	/// Defines, if transition is highlights the text.
@@ -74,6 +73,12 @@ public:
 	bool importatnt = false;
 	unsigned accentuation : 5;
 	static transition pickTransitionFromListByIndex(list<transition> transitions, int index);
+	friend transition operator+(const transition& i1, const string& i2);
+	friend transition operator+(const transition& t1, const transitionItem& i2);
+	friend transition operator+(const transition& t1, const transitionItemType& i2);
+
+	/// <returns>Empty transition(transition that satisfies: this.CSScode.size = 0)</returns>
+	static transition emptyTransition();
 };
 
 

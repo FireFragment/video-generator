@@ -19,7 +19,7 @@ void showlist(list <string> g)
 
 int main()
 {
-   video video("This is my video generator. It's only draft, so result isn't so good. But future updates will be here soon!");
+   video video("Welcome to my video generator. It's only the draft, so the results aren't so good. But future updates will be here soon!");
    cout << "DEVELOPMENT VERSION, DO NOT USE!\n\nIt's recommended to use rhytmical musics.\nEnter the path of music: " ;
    getline(cin, video.style.musicURL);
    // Create and open a text file
