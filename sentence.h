@@ -1,12 +1,12 @@
 #pragma once
 #include "word.h"
 #include <string>
-#include <list> 
+#include <vector> 
 using namespace std;
 class sentence
 {
 public:
-	list<word> words;
+	vector<word> words;
 
 	/// <summary>This constructor creates <c>sentence</c> object from text. </summary>
 	/// <param name="text">is sentence as text.</param>

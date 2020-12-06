@@ -9,8 +9,8 @@ sentence::sentence(string text) {
 }
 void sentence::changeSentence(string text) {
 	words = {};
-	list <string> textOfSentences = myFunctions::splitStringByDelimiter(text, " ");
-	list <string> ::iterator it;
+	vector <string> textOfSentences = myFunctions::splitStringByDelimiter(text, " ");
+	vector <string> ::iterator it;
 	for (it = textOfSentences.begin(); it != textOfSentences.end(); ++it) {
 		words.push_back(*it);
 	}

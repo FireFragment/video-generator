@@ -1,6 +1,6 @@
 #pragma once
 #include "transition.h";
-#include <list>
+#include <vector>
 #include <string>
 #include <algorithm>
 using namespace std;
@@ -10,11 +10,15 @@ class style
 {
 public:
 	style();
-	list<transition> normalTransitions = { transition() };
+	vector<transition> normalTransitions = { transition() };
 	/// <summary>
-	/// Adding transition means transition, that keeps text on screen, it just adds new text.
+	/// Transitions which keeps text on screen, it just adds new text.
 	/// </summary>
-	list<transition> addingTransitions;
+	vector<transition> addingTransitions;
+	/// <summary>
+	/// Accents text on screen, doesn't change text.
+	/// </summary>
+	vector<transition> accentingTransitions;
 	double speed = 1;
 	/// <summary>
 	/// Speed * this value = spaces between sentences in seconds.

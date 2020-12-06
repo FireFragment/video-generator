@@ -1,9 +1,9 @@
 #include "myFunctions.h"
 using namespace std;
 
-list<string> myFunctions::splitStringByDelimiter(string toSplit, string delimiter) {
+vector<string> myFunctions::splitStringByDelimiter(string toSplit, string delimiter) {
 	toSplit = toSplit + delimiter;
-	list<string> returnValue;
+	vector<string> returnValue;
 	size_t pos = 0;
 	std::string token;
 	while ((pos = toSplit.find(delimiter)) != string::npos) {
@@ -15,12 +15,12 @@ list<string> myFunctions::splitStringByDelimiter(string toSplit, string delimite
 	}
 	return returnValue;
 }
-list<string> myFunctions::splitStringByDelimiters(string toSplit, list<string> delimiters)
+vector<string> myFunctions::splitStringByDelimiters(string toSplit, vector<string> delimiters)
 {
 	string regex_string = "[^";
 
-	list<string> returnValue;
-	list <string> ::iterator it;
+	vector<string> returnValue;
+	vector <string> ::iterator it;
 	for (it = delimiters.begin(); it != delimiters.end(); ++it) {
 		regex_string += *it;
 	}
@@ -34,7 +34,7 @@ list<string> myFunctions::splitStringByDelimiters(string toSplit, list<string> d
 	return returnValue;
 }
 
-list<TimeStamp> myFunctions::getBeats(string url, float sensitivity, unsigned short int count, bool echoProgress)
+vector<TimeStamp> myFunctions::getBeats(string url, float sensitivity, unsigned short int count, bool echoProgress)
 {
 	BeatDetector::Instance()->loadSystem();
 	BeatDetector::Instance()->LoadSong(1024, _strdup(url.c_str()));
@@ -43,7 +43,7 @@ list<TimeStamp> myFunctions::getBeats(string url, float sensitivity, unsigned sh
 	bool firstBeat = true;
 
 	TimeStamp* localLastBeatOccured = 0;
-	list<TimeStamp> beats;
+	vector<TimeStamp> beats;
 	while (beats.size() <= count) {
 
 		BeatDetector::Instance()->update();

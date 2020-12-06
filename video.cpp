@@ -14,10 +14,10 @@ string video::generate() {
 
     // Generating CSS animation property.
 	cout << "Analyzing music, please wait..." << endl;
-	list<TimeStamp> beats = myFunctions::getBeats(style.musicURL, 1, getNeededTransitionsCount(), true);
-	list<TimeStamp> ::iterator beatsIt = beats.begin();
-	for (list <sentence> ::iterator it = sentences.begin(); it != sentences.end(); ++it) {
-		list <word> ::iterator it2;
+	vector<TimeStamp> beats = myFunctions::getBeats(style.musicURL, 2, getNeededTransitionsCount(), true);
+	vector<TimeStamp> ::iterator beatsIt = beats.begin();
+	for (vector <sentence> ::iterator it = sentences.begin(); it != sentences.end(); ++it) {
+		vector <word> ::iterator it2;
 		sentence actualSentence = *it;
 
 		for (it2 = actualSentence.words.begin(); it2 != actualSentence.words.end(); ++it2) {
@@ -41,17 +41,18 @@ string video::generate() {
 	returnValue += "; content:''} ";
 	string previousWordText = "";
 	string previousWordsTexts = "";
+
 	// Generating @keyframes
-	for (list <sentence> ::iterator it = sentences.begin(); it != sentences.end(); ++it) {
+	for (vector <sentence> ::iterator it = sentences.begin(); it != sentences.end(); ++it) {
 		sentence actualSentence = *it;
 
-		list <word> ::iterator it2;
+		vector <word> ::iterator it2;
 		int i = 0;
 		transition actualSentenceTransition = transition::pickTransitionFromListByIndex(style.normalTransitions, rand() % style.normalTransitions.size());
 		for (it2 = actualSentence.words.begin(); it2 != actualSentence.words.end(); ++it2) {
 			word actualWord = *it2;
 
-			returnValue += actualSentenceTransition.generateCode(actualWord.text, previousWordText, previousWordsTexts, anim_id, style, actualWord.accentutation);
+			returnValue += actualSentenceTransition.generateCode(actualWord.text, previousWordText, anim_id, style, actualWord.accentutation);
 			previousWordText = actualWord.text;
 			previousWordsTexts += actualWord.text;
 			anim_id++;
@@ -64,14 +65,14 @@ string video::generate() {
 unsigned short int video::getNeededTransitionsCount()
 {
 	unsigned short int returnValue = 0;
-	for (list <sentence> ::iterator it = sentences.begin(); it != sentences.end(); ++it) 
+	for (vector <sentence> ::iterator it = sentences.begin(); it != sentences.end(); ++it) 
 		returnValue += (*it).words.size();
 	return returnValue - 1;
 }
 
 video::video(string text) {
-	list <string> ::iterator it;
-	list <string> textOfSentences = myFunctions::splitStringByDelimiters(text, { ".", "!", "?" });
+	vector <string> ::iterator it;
+	vector <string> textOfSentences = myFunctions::splitStringByDelimiters(text, { ".", "!", "?" });
 	for (it = textOfSentences.begin(); it != textOfSentences.end(); ++it) {
 		sentences.push_back(*it);
 	}

@@ -1,17 +1,17 @@
 ﻿#include <iostream>
 #include <string>
 #include <fstream>
-#include <list>
+#include <vector>
 #include <Windows.h>
 #include "myFunctions.h"
 #include "BeatDetector/Detector/BeatDetector.h"
 #include "video.h"
 using namespace std;
 
-//function for printing the elements in a list 
-void showlist(list <string> g)
+//function for printing the elements in a vector 
+void showvector(vector <string> g)
 {
-    list <string> ::iterator it;
+    vector <string> ::iterator it;
     for (it = g.begin(); it != g.end(); ++it)
         cout << '\n' << *it;
     cout << '\n';

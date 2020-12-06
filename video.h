@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-#include <list> 
+#include <vector> 
 #include <iostream>
 #include <ctime>
 #include <cstdlib>
@@ -16,7 +16,7 @@ public:
 	video(string text);
 	/// <returns>HTML code with result video containing CSS and JS. </returns>
 	string generate();
-	list <sentence> sentences;
+	vector <sentence> sentences;
 	style style;
 private:
 	/// <returns>Count of transitions in video.</returns>

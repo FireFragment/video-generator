@@ -1,6 +1,6 @@
 #pragma once
 
-#include <list> 
+#include <vector> 
 #include <iostream>
 #include <algorithm>
 #include <regex>
@@ -14,15 +14,15 @@ using namespace std;
 class myFunctions
 {
 public:
-	/// <returns>List of substrings of <paramref name="toSplit"/>, splitted by <paramref name="delimiter"/></returns>
+	/// <returns>vector of substrings of <paramref name="toSplit"/>, splitted by <paramref name="delimiter"/></returns>
 	/// <param name="toSplit">is string to split around delimiter.</param>
 	/// <param name="delimiter" />
-	static list<string> splitStringByDelimiter(string toSplit, string delimiter);
+	static vector<string> splitStringByDelimiter(string toSplit, string delimiter);
 
-	/// <returns>List of substrings of <paramref name="toSplit"/>, splitted by all of <paramref name="delimiters"/></returns>
+	/// <returns>vector of substrings of <paramref name="toSplit"/>, splitted by all of <paramref name="delimiters"/></returns>
 	/// <param name="toSplit">is string to split around delimiter.</param>
 	/// <param name="delimiters" />
-	static list<string> splitStringByDelimiters(string toSplit, list<string> delimiters);
+	static vector<string> splitStringByDelimiters(string toSplit, vector<string> delimiters);
 	/// <summary>
 	/// Gets beats from adress
 	/// </summary>
@@ -31,7 +31,7 @@ public:
 	/// <param name="count">Optional, number of required beats. If undefined or 0, function will return all beats in song</param>
 	/// <param name="echoProgress">Optional, if true, progress of detection will be written to console. Defaultly false.</param>
 	/// <returns></returns>
-	static list<TimeStamp> getBeats(string url, float sensitivity = 3, unsigned short int count = 0, bool echoProgress = false);
+	static vector<TimeStamp> getBeats(string url, float sensitivity = 3, unsigned short int count = 0, bool echoProgress = false);
 	static string doubleToString(double num);
 };
 
