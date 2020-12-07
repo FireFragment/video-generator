@@ -3,7 +3,7 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-#include "transition.h"
+#include "transitionSet.h"
 using namespace std;
 /// <summary>Defines different styles of videos. 
 /// <para>Contains sounds, transitions and speed of video.</para></summary>
@@ -11,15 +11,7 @@ class style
 {
 public:
 	style();
-	vector<transition> normalTransitions = { transition() };
-	/// <summary>
-	/// Transitions which keeps text on screen, it just adds new text.
-	/// </summary>
-	vector<transition> addingTransitions;
-	/// <summary>
-	/// Accents text on screen, doesn't change text.
-	/// </summary>
-	vector<transition> accentingTransitions;
+	vector<transitionSet> transitionsSets = { transitionSet()};
 	double speed = 1;
 	/// <summary>
 	/// Speed * this value = spaces between sentences in seconds.
@@ -42,6 +34,6 @@ public:
 	/// Time in seconds.
 	/// <para>If is this value bigger than time from previous beat, addingTransition will be used instead of normalTransition.</para>
 	/// </summary>
-	float maximumFreqForAdddingTrans = 1;
+	float maximumFreqForAdddingTrans = 0.5;
 };
 

@@ -50,7 +50,7 @@ string transition::generateCode(string actualWord, string previousWord, unsigned
 }
 transition::transition(transitionType type_) {
 	type = type_;
-	CSScode = { transitionItem("@keyframes anim"), transitionItem(transitionItem_animId), transitionItem("{from{content:\""), transitionItem(transitionItem_previousWord), transitionItem("\";}to{content:\""), transitionItem(transitionItem_actualWord), transitionItem("\";}}") };
+	CSScode = { transitionItem("@keyframes a"), transitionItem(transitionItem_animId), transitionItem("{from{content:\""), transitionItem(transitionItem_previousWord), transitionItem("\";}to{content:\""), transitionItem(transitionItem_actualWord), transitionItem("\";}}") };
 }
 
 transition::transition(vector<transitionItem> CSScodeArg) {

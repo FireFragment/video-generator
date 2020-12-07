@@ -45,12 +45,6 @@
     <ClCompile Include="BeatDetector\Detector\TimeStamp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="transition-utilities\transition.cpp">
-      <Filter>Source Files\transition</Filter>
-    </ClCompile>
-    <ClCompile Include="transition-utilities\transitionItem.cpp">
-      <Filter>Source Files\transition</Filter>
-    </ClCompile>
     <ClCompile Include="transition.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -99,6 +93,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="transition.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="transitionSet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

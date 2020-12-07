@@ -7,6 +7,7 @@
 #include "sentence.h"
 #include "style.h"
 #include "myFunctions.h"
+#include "transitionSet.h"
 using namespace std;
 
 class video

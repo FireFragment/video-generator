@@ -168,6 +168,7 @@
     <ClInclude Include="sentence.h" />
     <ClInclude Include="style.h" />
     <ClInclude Include="transition.h" />
+    <ClInclude Include="transitionSet.h" />
     <ClInclude Include="video.h" />
     <ClInclude Include="word.h" />
   </ItemGroup>
