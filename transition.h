@@ -71,7 +71,7 @@ public:
 class transition
 {
 public:
-	transition();
+	transition(transitionType type_ = transition_normal);
 	transition(vector<transitionItem> CSScodeArg);
 	vector<transitionItem> CSScode;
 	/// <summary>
@@ -94,9 +94,6 @@ public:
 	friend transition operator+(const transition& t1, const transitionItemType& i2);
 
 	/// <returns>Empty transition(transition that satisfies: this.CSScode.size = 0)</returns>
-	static transition emptyTransition();
+	static transition emptyTransition(transitionType type_ = transition_normal);
 	transitionType type = transition_normal;
 };
-
-
-

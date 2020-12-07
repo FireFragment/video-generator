@@ -1,6 +1,18 @@
-﻿  video-generator.cpp
-C:\Users\snase\source\repos\C++\video-generator\transition.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\snase\source\repos\C++\video-generator\transition.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\snase\source\repos\C++\video-generator\transition.h(18,2): warning C4091: 'typedef ': ignored on left of 'transitionItemType' when no variable is declared
-C:\Users\snase\source\repos\C++\video-generator\style.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  video-generator.vcxproj -> C:\Users\snase\source\repos\C++\video-generator\Debug\video-generator.exe
+﻿  transition.cpp
+C:\Users\snase\source\repos\C++\video-generator-sruznayma\transition.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\snase\source\repos\C++\video-generator-sruznayma\transition.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\snase\source\repos\C++\video-generator-sruznayma\transition.h(17,2): warning C4091: 'typedef ': ignored on left of 'transitionItemType' when no variable is declared
+C:\Users\snase\source\repos\C++\video-generator-sruznayma\transition.h(33,2): warning C4091: 'typedef ': ignored on left of 'transitionType' when no variable is declared
+  video-generator.cpp
+C:\Users\snase\source\repos\C++\video-generator-sruznayma\transition.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\snase\source\repos\C++\video-generator-sruznayma\transition.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\snase\source\repos\C++\video-generator-sruznayma\transition.h(17,2): warning C4091: 'typedef ': ignored on left of 'transitionItemType' when no variable is declared
+C:\Users\snase\source\repos\C++\video-generator-sruznayma\transition.h(33,2): warning C4091: 'typedef ': ignored on left of 'transitionType' when no variable is declared
+  video.cpp
+C:\Users\snase\source\repos\C++\video-generator-sruznayma\transition.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\snase\source\repos\C++\video-generator-sruznayma\transition.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\snase\source\repos\C++\video-generator-sruznayma\transition.h(17,2): warning C4091: 'typedef ': ignored on left of 'transitionItemType' when no variable is declared
+C:\Users\snase\source\repos\C++\video-generator-sruznayma\transition.h(33,2): warning C4091: 'typedef ': ignored on left of 'transitionType' when no variable is declared
+C:\Users\snase\source\repos\C++\video-generator-sruznayma\video.cpp(87,36): warning C4267: '+=': conversion from 'size_t' to 'unsigned short', possible loss of data
+  Generating Code...
+  video-generator.vcxproj -> C:\Users\snase\source\repos\C++\video-generator-sruznayma\Debug\video-generator.exe

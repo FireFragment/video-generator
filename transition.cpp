@@ -22,9 +22,9 @@ transition transition::pickTransitionFromListByIndex(vector<transition> transiti
 	return *it;
 }
 
-transition transition::emptyTransition()
+transition transition::emptyTransition(transitionType type_)
 {
-	transition returnValue = transition();
+	transition returnValue = transition(type_);
 	returnValue.CSScode.clear();
 	return returnValue;
 }
@@ -48,7 +48,8 @@ string transition::generateCode(string actualWord, string previousWord, unsigned
 		returnValue += (*it).generate(actualWord, previousWord, animId, accentuation);
 	return returnValue;
 }
-transition::transition() {
+transition::transition(transitionType type_) {
+	type = type_;
 	CSScode = { transitionItem("@keyframes anim"), transitionItem(transitionItem_animId), transitionItem("{from{content:\""), transitionItem(transitionItem_previousWord), transitionItem("\";}to{content:\""), transitionItem(transitionItem_actualWord), transitionItem("\";}}") };
 }
 

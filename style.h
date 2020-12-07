@@ -1,11 +1,12 @@
 #pragma once
-#include "transition.h";
+
 #include <vector>
 #include <string>
 #include <algorithm>
+#include "transition.h"
 using namespace std;
 /// <summary>Defines different styles of videos. 
-/// <para>Can contain sounds, transitions and speed of video.</para></summary>
+/// <para>Contains sounds, transitions and speed of video.</para></summary>
 class style
 {
 public:
@@ -34,7 +35,13 @@ public:
 	string baseCSS; // Assigned in constructor.
 	string musicURL;
 
-	/// <returns>Escapesd musicURL (all \ replaces with /)</returns>
+	/// <returns>Escaped musicURL (all \ replaces with /)</returns>
 	string getEscapedMusicURL();
+
+	/// <summary>
+	/// Time in seconds.
+	/// <para>If is this value bigger than time from previous beat, addingTransition will be used instead of normalTransition.</para>
+	/// </summary>
+	float maximumFreqForAdddingTrans = 1;
 };
 

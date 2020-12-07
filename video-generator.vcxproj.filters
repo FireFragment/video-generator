@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\transition">
+      <UniqueIdentifier>{80a02b5f-b5e6-4d58-b3ff-bb32224a59e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\transition">
+      <UniqueIdentifier>{09227f20-39cd-42dc-8906-bc96c43b53d0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="video-generator.cpp">
@@ -33,13 +39,19 @@
     <ClCompile Include="style.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="transition.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="BeatDetector\Detector\BeatDetector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="BeatDetector\Detector\TimeStamp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="transition-utilities\transition.cpp">
+      <Filter>Source Files\transition</Filter>
+    </ClCompile>
+    <ClCompile Include="transition-utilities\transitionItem.cpp">
+      <Filter>Source Files\transition</Filter>
+    </ClCompile>
+    <ClCompile Include="transition.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -57,9 +69,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="style.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="transition.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="BeatDetector\Detector\BeatDetector.h">
@@ -87,6 +96,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="BeatDetector\FMOD\inc\fmod_output.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="transition.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
