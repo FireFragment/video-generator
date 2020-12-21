@@ -2,10 +2,10 @@
 #include "style.h"
 using namespace std;
 
-transitionItem::transitionItem(transitionItemType typeArg) {type = typeArg;}
-transitionItem::transitionItem(string string) { text = string; }
+transition::transitionItem::transitionItem(transitionItemType typeArg) {type = typeArg;}
+transition::transitionItem::transitionItem(string string) { text = string; }
 
-transitionItem::transitionItem(unsigned short int limit, string ifBigger, string ifSmaller)
+transition::transitionItem::transitionItem(unsigned short int limit, string ifBigger, string ifSmaller)
 {
 	accentuationCondition_limit = limit;
 	accentuationCondition_ifBigger = ifBigger;
@@ -29,7 +29,7 @@ transition transition::emptyTransition(transitionType type_)
 	return returnValue;
 }
 
-string transitionItem::generate(string actualWord, string previousWord, int animId, unsigned short int accentutation)
+string transition::transitionItem::generate(string actualWord, string previousWord, int animId, unsigned short int accentutation)
 {
 	string returnValue;
 	switch (type) {
@@ -50,35 +50,33 @@ string transition::generateCode(string actualWord, string previousWord, unsigned
 }
 transition::transition(transitionType type_) {
 	type = type_;
-	CSScode = { transitionItem("@keyframes a"), transitionItem(transitionItem_animId), transitionItem("{from{content:\""), transitionItem(transitionItem_previousWord), transitionItem("\";}to{content:\""), transitionItem(transitionItem_actualWord), transitionItem("\";}}") };
+	CSScode = { transitionItem("@keyframes a"), transitionItem(transitionItem::transitionItem_animId), transitionItem("{from{content:\""), transitionItem(transition::transitionItem::transitionItem_previousWord), transitionItem("\";}to{content:\""), transitionItem(transitionItem::transitionItem_actualWord), transitionItem("\";}}") };
 }
 
 transition::transition(vector<transitionItem> CSScodeArg) {
 	CSScode = CSScodeArg;
 }
 
-transition operator+(const transition& t1, const transitionItem& i2)
+transition operator+(const transition& t1, const transition::transitionItem& i2)
 {
-	vector<transitionItem> codeToReturn = t1.CSScode;
+	vector<transition::transitionItem> codeToReturn = t1.CSScode;
 	codeToReturn.push_back(i2);
 
 	return transition(transition(codeToReturn));
 }
 
-transition operator+(const transition& t1, const transitionItemType& i2)
+transition operator+(const transition& t1, const transition::transitionItem::transitionItemType& i2)
 {
-	vector<transitionItem> codeToReturn = t1.CSScode;
-	transitionItemType aa = transitionItemType(i2);
-	int aab = 0;
-	codeToReturn.push_back(transitionItem(i2));
+	vector<transition::transitionItem> codeToReturn = t1.CSScode;
+	codeToReturn.push_back(transition::transitionItem(i2));
 
 	return transition(transition(codeToReturn));
 }
 
 transition operator+(const transition& t1, const string& i2)
 {
-	vector<transitionItem> codeToReturn = t1.CSScode;
-	codeToReturn.push_back(transitionItem(i2));
+	vector<transition::transitionItem> codeToReturn = t1.CSScode;
+	codeToReturn.push_back(transition::transitionItem(i2));
 
 	return transition(transition(codeToReturn));
 }

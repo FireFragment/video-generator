@@ -1,26 +1,7 @@
-﻿  BeatDetector.cpp
-  myFunctions.cpp
-C:\Users\snase\source\repos\C++\video-generator\transition.h(18,2): warning C4091: 'typedef ': ignored on left of 'transitionItemType' when no variable is declared
-C:\Users\snase\source\repos\C++\video-generator\transition.h(34,2): warning C4091: 'typedef ': ignored on left of 'transitionType' when no variable is declared
-  sentence.cpp
-C:\Users\snase\source\repos\C++\video-generator\transition.h(18,2): warning C4091: 'typedef ': ignored on left of 'transitionItemType' when no variable is declared
-C:\Users\snase\source\repos\C++\video-generator\transition.h(34,2): warning C4091: 'typedef ': ignored on left of 'transitionType' when no variable is declared
-  style.cpp
-C:\Users\snase\source\repos\C++\video-generator\transition.h(18,2): warning C4091: 'typedef ': ignored on left of 'transitionItemType' when no variable is declared
-C:\Users\snase\source\repos\C++\video-generator\transition.h(34,2): warning C4091: 'typedef ': ignored on left of 'transitionType' when no variable is declared
-  transition.cpp
-C:\Users\snase\source\repos\C++\video-generator\transition.h(18,2): warning C4091: 'typedef ': ignored on left of 'transitionItemType' when no variable is declared
-C:\Users\snase\source\repos\C++\video-generator\transition.h(34,2): warning C4091: 'typedef ': ignored on left of 'transitionType' when no variable is declared
-  video-generator.cpp
-C:\Users\snase\source\repos\C++\video-generator\transition.h(18,2): warning C4091: 'typedef ': ignored on left of 'transitionItemType' when no variable is declared
-C:\Users\snase\source\repos\C++\video-generator\transition.h(34,2): warning C4091: 'typedef ': ignored on left of 'transitionType' when no variable is declared
-  video.cpp
-C:\Users\snase\source\repos\C++\video-generator\transition.h(18,2): warning C4091: 'typedef ': ignored on left of 'transitionItemType' when no variable is declared
-C:\Users\snase\source\repos\C++\video-generator\transition.h(34,2): warning C4091: 'typedef ': ignored on left of 'transitionType' when no variable is declared
-C:\Users\snase\source\repos\C++\video-generator\video.cpp(68,36): warning C4267: '+=': conversion from 'size_t' to 'unsigned short', possible loss of data
+﻿  word.cpp
   Generating code
-  575 of 1508 functions (38.1%) were compiled, the rest were copied from previous compilation.
-    411 functions were new in current compilation
-    128 functions had inline decision re-evaluated but remain unchanged
+  0 of 1558 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
-  video-generator.vcxproj -> C:\Users\snase\source\repos\C++\video-generator\Release\video-generator.exe
+  video-generator.vcxproj -> D:\Users\snase\source\repos\C++\video-generator\Release\video-generator.exe

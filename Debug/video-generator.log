@@ -1,4 +1,28 @@
-﻿  video-generator.cpp
-C:\Users\snase\source\repos\C++\video-generator\transition.h(18,2): warning C4091: 'typedef ': ignored on left of 'transitionItemType' when no variable is declared
-C:\Users\snase\source\repos\C++\video-generator\transition.h(34,2): warning C4091: 'typedef ': ignored on left of 'transitionType' when no variable is declared
-  video-generator.vcxproj -> C:\Users\snase\source\repos\C++\video-generator\Debug\video-generator.exe
+﻿  BeatDetector.cpp
+  TimeStamp.cpp
+  myFunctions.cpp
+D:\Users\snase\source\repos\C++\video-generator\transition.h(24,2): warning C4091: 'typedef ': ignored on left of 'transitionType' when no variable is declared
+D:\Users\snase\source\repos\C++\video-generator\transition.h(46): warning C4091: 'typedef ': ignored on left of 'transition::transitionItem::transitionItemType' when no variable is declared
+  sentence.cpp
+D:\Users\snase\source\repos\C++\video-generator\transition.h(24,2): warning C4091: 'typedef ': ignored on left of 'transitionType' when no variable is declared
+D:\Users\snase\source\repos\C++\video-generator\transition.h(46): warning C4091: 'typedef ': ignored on left of 'transition::transitionItem::transitionItemType' when no variable is declared
+  style.cpp
+D:\Users\snase\source\repos\C++\video-generator\transition.h(24,2): warning C4091: 'typedef ': ignored on left of 'transitionType' when no variable is declared
+D:\Users\snase\source\repos\C++\video-generator\transition.h(46): warning C4091: 'typedef ': ignored on left of 'transition::transitionItem::transitionItemType' when no variable is declared
+D:\Users\snase\source\repos\C++\video-generator\style.h(42,37): warning C4305: 'initializing': truncation from 'double' to 'float'
+  transition.cpp
+D:\Users\snase\source\repos\C++\video-generator\transition.h(24,2): warning C4091: 'typedef ': ignored on left of 'transitionType' when no variable is declared
+D:\Users\snase\source\repos\C++\video-generator\transition.h(46): warning C4091: 'typedef ': ignored on left of 'transition::transitionItem::transitionItemType' when no variable is declared
+D:\Users\snase\source\repos\C++\video-generator\style.h(42,37): warning C4305: 'initializing': truncation from 'double' to 'float'
+  video-generator.cpp
+D:\Users\snase\source\repos\C++\video-generator\transition.h(24,2): warning C4091: 'typedef ': ignored on left of 'transitionType' when no variable is declared
+D:\Users\snase\source\repos\C++\video-generator\transition.h(46): warning C4091: 'typedef ': ignored on left of 'transition::transitionItem::transitionItemType' when no variable is declared
+D:\Users\snase\source\repos\C++\video-generator\style.h(42,37): warning C4305: 'initializing': truncation from 'double' to 'float'
+  video.cpp
+D:\Users\snase\source\repos\C++\video-generator\transition.h(24,2): warning C4091: 'typedef ': ignored on left of 'transitionType' when no variable is declared
+D:\Users\snase\source\repos\C++\video-generator\transition.h(46): warning C4091: 'typedef ': ignored on left of 'transition::transitionItem::transitionItemType' when no variable is declared
+D:\Users\snase\source\repos\C++\video-generator\style.h(42,37): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\Users\snase\source\repos\C++\video-generator\video.cpp(68,36): warning C4267: '+=': conversion from 'size_t' to 'unsigned short', possible loss of data
+  word.cpp
+  Generating Code...
+  video-generator.vcxproj -> D:\Users\snase\source\repos\C++\video-generator\Debug\video-generator.exe

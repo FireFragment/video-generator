@@ -5,17 +5,7 @@
 using namespace std;
 class style;
 
-/// <summary>
-/// Types of transition items. See also <seealso cref="transitionItem"/> and <seealso cref="transition"/>
-/// </summary>
-typedef enum transitionItemType
-{
-	transitionItem_string,
-	transitionItem_actualWord,
-	transitionItem_previousWord,
-	transitionItem_animId,
-	transitionItem_accentuationCondition
-};
+
 
 typedef enum transitionType
 {
@@ -33,45 +23,57 @@ typedef enum transitionType
 	transition_accenting
 };
 
-/// <summary>
-/// Transition item is part of transition CSS code, eg. text of word, that disappears with transition (previousWord) or appears (actualWord) or concrete string. See also <seealso cref="transition"/>
-/// </summary>
-class transitionItem {
-public:
-	transitionItemType type = transitionItem_string;
-	///<summary>Used only when type is transitionItem_string </summary>
-	string text;
 
-
-	/// <summary>Used only when type is transitionItem_accentutationCondition </summary>
-	int accentuationCondition_limit = 0;
-	/// <summary>Used only when type is transitionItem_accentutationCondition 
-	///		<para>Returned by generate(), when accentutation is bigger or equal to limit</para>
-	/// </summary>
-	string accentuationCondition_ifBigger;
-	/// <summary>Used only when type is transitionItem_accentutationCondition 
-	///		<para>Returned by generate(), when accentutation is smaller than limit</para>
-	/// </summary>
-	string accentuationCondition_ifSmaller;
-
-
-	transitionItem(transitionItemType typeArg);
-	transitionItem(string string);
-	/// <summary>
-	/// Creates transition item with type accentutationCondition
-	/// </summary>
-	/// <param name="limit"></param>
-	/// <param name="ifBigger">: returned by generate(), when accentutation is bigger or equal to limit</param>
-	/// <param name="ifSmaller">: returned by generate(), when accentutation is smaller than limit</param>
-	transitionItem(unsigned short int limit, string ifBigger, string ifSmaller = "");
-	string generate(string actualWord, string previousWord, int animId, unsigned short int accentutation = 0);
-
-
-};
 
 class transition
 {
 public:
+	/// <summary>
+	/// Transition item is part of transition CSS code, eg. text of word, that disappears with transition (previousWord) or appears (actualWord) or concrete string. See also <seealso cref="transition"/>
+	/// </summary>
+	class transitionItem {
+	public:
+		/// <summary>
+		/// Types of transition items. See also <seealso cref="transitionItem"/> and <seealso cref="transition"/>
+		/// </summary>
+		typedef enum transitionItemType
+		{
+			transitionItem_string,
+			transitionItem_actualWord,
+			transitionItem_previousWord,
+			transitionItem_animId,
+			transitionItem_accentuationCondition
+		};
+		transitionItemType type = transitionItem_string;
+		///<summary>Used only when type is transitionItem_string </summary>
+		string text;
+
+
+		/// <summary>Used only when type is transitionItem_accentutationCondition </summary>
+		int accentuationCondition_limit = 0;
+		/// <summary>Used only when type is transitionItem_accentutationCondition 
+		///		<para>Returned by generate(), when accentutation is bigger or equal to limit</para>
+		/// </summary>
+		string accentuationCondition_ifBigger;
+		/// <summary>Used only when type is transitionItem_accentutationCondition 
+		///		<para>Returned by generate(), when accentutation is smaller than limit</para>
+		/// </summary>
+		string accentuationCondition_ifSmaller;
+
+
+		transitionItem(transitionItemType typeArg);
+		transitionItem(string string);
+		/// <summary>
+		/// Creates transition item with type accentutationCondition
+		/// </summary>
+		/// <param name="limit"></param>
+		/// <param name="ifBigger">: returned by generate(), when accentutation is bigger or equal to limit</param>
+		/// <param name="ifSmaller">: returned by generate(), when accentutation is smaller than limit</param>
+		transitionItem(unsigned short int limit, string ifBigger, string ifSmaller = "");
+		string generate(string actualWord, string previousWord, int animId, unsigned short int accentutation = 0);
+
+
+	};
 	transition(transitionType type_ = transition_normal);
 	transition(vector<transitionItem> CSScodeArg);
 	vector<transitionItem> CSScode;
@@ -92,7 +94,7 @@ public:
 	static transition pickTransitionFromListByIndex(vector<transition> transitions, int index);
 	friend transition operator+(const transition& i1, const string& i2);
 	friend transition operator+(const transition& t1, const transitionItem& i2);
-	friend transition operator+(const transition& t1, const transitionItemType& i2);
+	friend transition operator+(const transition& t1, const transitionItem::transitionItemType& i2);
 
 	/// <returns>Empty transition(transition that satisfies: this.CSScode.size = 0)</returns>
 	static transition emptyTransition(transitionType type_ = transition_normal);

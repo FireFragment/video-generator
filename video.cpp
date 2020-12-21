@@ -9,8 +9,8 @@ string video::generate() {
 
 	//Add transitions
 
-/*	style.normalTransitions.push_back(transition::emptyTransition() + "@keyframes a" + transitionItem_animId + "{from{content:\"" + transitionItem_previousWord + "\";}50%{opacity:0}100%{" + transitionItem(1, "color:black;background:white;", "color: white; background: none;") + "opacity:1;margin-right:0;content:\"" + transitionItem_actualWord + "\";}}");
-	style.normalTransitions.push_back(transition::emptyTransition() + "@keyframes a" + transitionItem_animId + "{from{content:\"" + transitionItem_previousWord + "\";transform:rotateX(0deg);}50%{color:white;background:none;transform:rotateX(90deg);}50.01%{" + transitionItem(1, "color:black;background:white;", "color: white; background: none;") + "transform:rotateX(-90deg);}100%{transform:rotateX(0deg);margin-right:0;content:\"" +transitionItem_actualWord + "\";}}" );
+	style.transitionsSets.push_back(transitionSet(transition::emptyTransition() + "@keyframes a" + transition::transitionItem::transitionItem_animId + "{from{content:\"" + transition::transitionItem::transitionItem_previousWord + "\";}50%{opacity:0}100%{" + transition::transitionItem(1, "color:black;background:white;", "color: white; background: none;") + "opacity:1;margin-right:0;content:\"" + transition::transitionItem::transitionItem_actualWord + "\";}}"));
+/*	style.normalTransitions.push_back(transition::emptyTransition() + "@keyframes a" + transitionItem_animId + "{from{content:\"" + transitionItem_previousWord + "\";transform:rotateX(0deg);}50%{color:white;background:none;transform:rotateX(90deg);}50.01%{" + transitionItem(1, "color:black;background:white;", "color: white; background: none;") + "transform:rotateX(-90deg);}100%{transform:rotateX(0deg);margin-right:0;content:\"" +transitionItem_actualWord + "\";}}" );
 	style.addingTransitions.push_back(transition::emptyTransition(transition_adding) + "@keyframes a" + transitionItem_animId + "{from{content:\"" + transitionItem_previousWord + "\";}100%{content:\"" + transitionItem_actualWord + "\";}}" );
 */
     // Generating CSS animation property.
