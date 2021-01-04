@@ -15,8 +15,8 @@ string video::generate() {
 */
     // Generating CSS animation property.
 	cout << "Analyzing music, please wait..." << endl;
-	vector<TimeStamp> beats = myFunctions::getBeats(style.musicURL, 1.5, getNeededTransitionsCount(), true);
-	vector<TimeStamp> ::iterator beatsIt = beats.begin();
+	vector<beat> beats = myFunctions::getBeats(style.musicURL, 5, getNeededTransitionsCount(), true);
+	vector<beat> ::iterator beatsIt = beats.begin();
 	anim_id = 0;
 	string previousWordText = "";
 
@@ -32,9 +32,9 @@ string video::generate() {
 			// Generating CSS animation property
 			word actualWord = *it2;
 
-			TimeStamp actualBeat = *beatsIt;
-			double delayFromPreviousAnim = (actualBeat.getMilliseconds() / double(100) + actualBeat.getSeconds()) - delay;
-			delay = actualBeat.getMilliseconds() / double(100) + actualBeat.getSeconds();
+			beat actualBeat = *beatsIt;
+			double delayFromPreviousAnim = actualBeat.time - delay;
+			delay = actualBeat.time;
 			animationProperty += "a" + to_string(anim_id) + " " + myFunctions::doubleToString(delayFromPreviousAnim * (double)style.speed) + "0s ease " + myFunctions::doubleToString(delay) + "0s running normal forwards,";
 
 

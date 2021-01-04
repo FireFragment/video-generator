@@ -31,7 +31,7 @@ public:
 	/// <param name="count">Optional, number of required beats. If undefined or 0, function will return all beats in song</param>
 	/// <param name="echoProgress">Optional, if true, progress of detection will be written to console. Defaultly false.</param>
 	/// <returns></returns>
-	static vector<TimeStamp> getBeats(string url, float sensitivity = 3, unsigned short int count = 0, bool echoProgress = false);
+	static vector<beat> getBeats(string url, float sensitivity = 3, unsigned short int count = 0, bool echoProgress = false);
 	static string doubleToString(double num);
 };
 

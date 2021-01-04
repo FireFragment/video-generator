@@ -8,6 +8,7 @@
 #include <math.h>
 #include "../FMOD/inc/fmod.hpp"
 #include "../FMOD/inc/fmod_errors.h"
+#include "beat.h"
 #include "TimeStamp.h"
 #include <iostream>
 
@@ -25,7 +26,7 @@ public:
 	FMOD::System * fmodSetup();
 	void FMODErrorCheck(FMOD_RESULT);
 	void setStarted(bool);
-	TimeStamp* getLastBeat();
+	beat getLastBeat();
 	bool isPlaying();
 	char* getSongName();
 	char* getArtistName();
@@ -47,7 +48,7 @@ public:
 		}
 		return instance;
 	}
-	
+	beat lastBeatRegistered;
 private:
 	BeatDetector(){};
 	static BeatDetector* instance;
@@ -66,7 +67,7 @@ private:
 	unsigned int timeBetween;
 	const char* songString;
 	bool started;
-	TimeStamp* lastBeatRegistered;
+//	beat* lastBeatRegistered;
 	TimeStamp* totalSongTime;
 	char songName [50];
 	char* artistName;

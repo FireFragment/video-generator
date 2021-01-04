@@ -35,5 +35,10 @@ public:
 	/// <para>If is this value bigger than time from previous beat, addingTransition will be used instead of normalTransition.</para>
 	/// </summary>
 	float maximumFreqForAdddingTrans = 0.5;
+	/// <summary>
+	/// Time in seconds.
+	/// <para>If is this value bigger than time from previous beat, accentingTransition will be used instead of normalTransition.</para>
+	/// </summary>
+	float maximumFreqForAccentingTrans = 0.1;
 };
 

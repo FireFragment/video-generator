@@ -24,8 +24,6 @@ public:
 
 	void setTimeWithMetaData(int, int, int, char*);
 	void setTimeWithFrequency(int, int, int, float);
-
-	float beatStrenght = 0;
 private:
 	int minutes;
 	int seconds;

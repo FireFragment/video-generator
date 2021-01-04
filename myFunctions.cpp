@@ -34,7 +34,7 @@ vector<string> myFunctions::splitStringByDelimiters(string toSplit, vector<strin
 	return returnValue;
 }
 
-vector<TimeStamp> myFunctions::getBeats(string url, float sensitivity, unsigned short int count, bool echoProgress)
+vector<beat> myFunctions::getBeats(string url, float sensitivity, unsigned short int count, bool echoProgress)
 {
 	BeatDetector::Instance()->loadSystem();
 	BeatDetector::Instance()->LoadSong(1024, _strdup(url.c_str()));
@@ -42,14 +42,15 @@ vector<TimeStamp> myFunctions::getBeats(string url, float sensitivity, unsigned 
 	BeatDetector::Instance()->setStarted(true);
 	bool firstBeat = true;
 
-	TimeStamp* localLastBeatOccured = 0;
-	vector<TimeStamp> beats;
+	beat localLastBeatOccured = beat();
+	vector<beat> beats;
 	while (beats.size() <= count) {
 
 		BeatDetector::Instance()->update();
 		Sleep(10);
-
-		if (localLastBeatOccured != BeatDetector::Instance()->getLastBeat())
+		int lastB = BeatDetector::Instance()->getLastBeat().time;
+		
+		if (localLastBeatOccured.time != BeatDetector::Instance()->getLastBeat().time)
 		{
 			if (firstBeat)
 				firstBeat = false; 
@@ -60,7 +61,7 @@ vector<TimeStamp> myFunctions::getBeats(string url, float sensitivity, unsigned 
 				BeatDetector::Instance()->updateTime();
 				localLastBeatOccured = BeatDetector::Instance()->getLastBeat();
 
-				beats.push_back(*localLastBeatOccured);
+				beats.push_back(localLastBeatOccured);
 				if (echoProgress)
 					cout << "Analyzing music: " << beats.size() - 1 << "/" << count << endl;
 			}

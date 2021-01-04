@@ -1,2 +1,0 @@
-C:\Users\snase\source\repos\C++\video-generator\Release\video-generator.exe
-D:\Users\snase\source\repos\C++\video-generator\Release\video-generator.exe

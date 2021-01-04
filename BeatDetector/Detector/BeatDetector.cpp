@@ -50,7 +50,7 @@ void BeatDetector::LoadSong(int sSize, char* audioString)
 	beatThreshold = 0.6f;
 	thresholdSmoother = 0.6f;
 	started = false;
-	lastBeatRegistered = new TimeStamp();
+	lastBeatRegistered = beat();
 	timeToDelay = 0;
 
 	previousFFT = new float[sampleSize / 2 + 1];
@@ -82,7 +82,7 @@ void BeatDetector::LoadSong(int sSize, char* audioString)
 	std::cout << "Song Length: " << minutes << ":" << seconds << std::endl;
 	std::cout << "Sample Rate: " << sampleRate << std::endl;
 	std::cout << "Freq Range: " << hzRange << std::endl; */
-	songChannel1->setVolume(0);
+	songChannel1->setVolume(1);
 
 }
 
@@ -281,8 +281,9 @@ void BeatDetector::update()
 				timeBetween = clock();
 
 				TimeStamp* t = new TimeStamp(currentMinutes, currentSeconds, currentMillis, specFlux);
-				t -> beatStrenght = specFlux - beatThreshold / sensitivity;
-				lastBeatRegistered = t;
+
+				lastBeatRegistered = beat(*t);
+				lastBeatRegistered.strength = specFlux - beatThreshold / sensitivity;
 			}
 			else if ((clock() - timeBetween) > 5000)
 			{
@@ -421,7 +422,7 @@ void BeatDetector::setStarted(bool areWeStarted)
 
 //Returns the last beat detected by the detection code. This function will be the main
 //interface for gameplay programmers to tell when a beat has occured.
-TimeStamp* BeatDetector::getLastBeat()
+beat BeatDetector::getLastBeat()
 {
 	return lastBeatRegistered;
 }
