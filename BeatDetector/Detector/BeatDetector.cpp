@@ -82,7 +82,7 @@ void BeatDetector::LoadSong(int sSize, char* audioString)
 	std::cout << "Song Length: " << minutes << ":" << seconds << std::endl;
 	std::cout << "Sample Rate: " << sampleRate << std::endl;
 	std::cout << "Freq Range: " << hzRange << std::endl; */
-	songChannel1->setVolume(1);
+	songChannel1->setVolume(0);
 
 }
 
