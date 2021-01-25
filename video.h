@@ -4,10 +4,10 @@
 #include <iostream>
 #include <ctime>
 #include <cstdlib>
-#include "sentence.h"
 #include "style.h"
 #include "myFunctions.h"
 #include "transitionSet.h"
+#include "word.h"
 using namespace std;
 
 class video
@@ -17,7 +17,7 @@ public:
 	video(string text);
 	/// <returns>HTML code with result video containing CSS and JS. </returns>
 	string generate();
-	vector <sentence> sentences;
+	vector <word> words;
 	style style;
 private:
 	/// <returns>Count of transitions in video.</returns>

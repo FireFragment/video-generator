@@ -148,7 +148,6 @@
     <ClCompile Include="BeatDetector\Detector\BeatDetector.cpp" />
     <ClCompile Include="BeatDetector\Detector\TimeStamp.cpp" />
     <ClCompile Include="myFunctions.cpp" />
-    <ClCompile Include="sentence.cpp" />
     <ClCompile Include="style.cpp" />
     <ClCompile Include="transition.cpp" />
     <ClCompile Include="video-generator.cpp" />
@@ -167,7 +166,6 @@
     <ClInclude Include="BeatDetector\FMOD\inc\fmod_memoryinfo.h" />
     <ClInclude Include="BeatDetector\FMOD\inc\fmod_output.h" />
     <ClInclude Include="myFunctions.h" />
-    <ClInclude Include="sentence.h" />
     <ClInclude Include="style.h" />
     <ClInclude Include="transition.h" />
     <ClInclude Include="transitionSet.h" />

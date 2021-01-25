@@ -21,9 +21,6 @@
     <ClCompile Include="video.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="sentence.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="word.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -48,9 +45,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="video.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="sentence.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="word.h">
