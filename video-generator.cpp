@@ -19,7 +19,7 @@ void showvector(vector <string> g)
 
 int main()
 {
-   video video("Welcome to my video generator. Firstly: this is just the development draft, so it's pretty unusable yet. But I plan to make it better this to summer. When it will be complete, you will be able to make a video from plain text and your favorite music. But not now, you have to wait a bit.");
+   video video("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Et ultrices neque ornare aenean. Ante in nibh mauris cursus mattis molestie. Ultrices tincidunt arcu non sodales neque sodales ut etiam. Purus gravida quis blandit turpis cursus in. Pellentesque sit amet porttitor eget dolor morbi non arcu risus. Cras fermentum odio eu feugiat pretium nibh ipsum consequat. A cras semper auctor neque vitae tempus quam pellentesque nec. Ornare suspendisse sed nisi lacus sed viverra tellus in. Diam in arcu cursus euismod quis.");
    cout << "DEVELOPMENT VERSION, DO NOT USE!\n\nIt's recommended to use rhytmical musics.\nEnter the path of music: " ;
    getline(cin, video.style.musicURL);
    // Create and open a text file
