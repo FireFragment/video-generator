@@ -6,12 +6,12 @@
 #include <regex>
 #include <Windows.h>
 #include "transition.h" 
-#include "BeatDetector/Detector/BeatDetector.h" 
+#include "../BeatDetector/Detector/BeatDetector.h" 
 using namespace std;
 /// <summary>
 /// Static functions made for this program.
 /// </summary>
-class myFunctions
+class helperFunctions
 {
 public:
 	/// <returns>vector of substrings of <paramref name="toSplit"/>, splitted by <paramref name="delimiter"/></returns>

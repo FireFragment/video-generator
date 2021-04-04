@@ -3,8 +3,8 @@
 #include <fstream>
 #include <vector>
 #include <Windows.h>
-#include "myFunctions.h"
-#include "BeatDetector/Detector/BeatDetector.h"
+#include "helperFunctions.h"
+#include "../BeatDetector/Detector/BeatDetector.h"
 #include "video.h"
 using namespace std;
 

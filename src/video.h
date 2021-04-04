@@ -5,7 +5,7 @@
 #include <ctime>
 #include <cstdlib>
 #include "style.h"
-#include "myFunctions.h"
+#include "helperFunctions.h"
 #include "transitionSet.h"
 #include "word.h"
 using namespace std;

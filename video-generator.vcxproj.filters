@@ -15,19 +15,19 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="video-generator.cpp">
+    <ClCompile Include="src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="video.cpp">
+    <ClCompile Include="src\video.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="word.cpp">
+    <ClCompile Include="src\word.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="myFunctions.cpp">
+    <ClCompile Include="src\helperFunctions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="style.cpp">
+    <ClCompile Include="src\style.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="BeatDetector\Detector\BeatDetector.cpp">
@@ -36,7 +36,7 @@
     <ClCompile Include="BeatDetector\Detector\TimeStamp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="transition.cpp">
+    <ClCompile Include="src\transition.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="BeatDetector\Detector\beat.cpp">
@@ -44,16 +44,16 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="video.h">
+    <ClInclude Include="src\video.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="word.h">
+    <ClInclude Include="src\word.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="myFunctions.h">
+    <ClInclude Include="src\helperFunctions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="style.h">
+    <ClInclude Include="src\style.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="BeatDetector\Detector\BeatDetector.h">
@@ -83,10 +83,10 @@
     <ClInclude Include="BeatDetector\FMOD\inc\fmod_output.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="transition.h">
+    <ClInclude Include="src\transition.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="transitionSet.h">
+    <ClInclude Include="src\transitionSet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="BeatDetector\Detector\beat.h">
@@ -95,5 +95,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="fmodex.dll" />
+    <None Include="README.md" />
   </ItemGroup>
 </Project>

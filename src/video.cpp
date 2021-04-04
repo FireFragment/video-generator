@@ -18,7 +18,7 @@ string video::generate() {
 	*/
 	// Generating CSS animation property.
 	cout << "Analyzing music, please wait..." << endl;
-	vector<beat> beats = myFunctions::getBeats(style.musicURL, 5, getNeededTransitionsCount(), true);
+	vector<beat> beats = helperFunctions::getBeats(style.musicURL, 5, getNeededTransitionsCount(), true);
 	vector<beat> ::iterator beatsIt = beats.begin();
 	anim_id = 0;
 	string previousWordText = "";
@@ -33,7 +33,7 @@ string video::generate() {
 		beat actualBeat = *beatsIt;
 		double delayFromPreviousAnim = actualBeat.time - delay;
 		delay = actualBeat.time;
-		animationProperty += "a" + to_string(anim_id) + " " + myFunctions::doubleToString(delayFromPreviousAnim * (double)style.speed) + "0s ease " + myFunctions::doubleToString(delay) + "0s running normal forwards,";
+		animationProperty += "a" + to_string(anim_id) + " " + helperFunctions::doubleToString(delayFromPreviousAnim * (double)style.speed) + "0s ease " + helperFunctions::doubleToString(delay) + "0s running normal forwards,";
 
 
 		bool atEnd = beatsIt == beats.end();
@@ -67,7 +67,7 @@ unsigned short int video::getNeededTransitionsCount()
 
 video::video(string text) {
 	vector <string> ::iterator it;
-	vector <string> textOfWords = myFunctions::splitStringByDelimiters(text, { " " });
+	vector <string> textOfWords = helperFunctions::splitStringByDelimiters(text, { " " });
 	for (it = textOfWords.begin(); it != textOfWords.end(); ++it) {
 		words.push_back(*it);
 	}

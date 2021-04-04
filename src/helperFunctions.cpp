@@ -1,7 +1,7 @@
-#include "myFunctions.h"
+#include "helperFunctions.h"
 using namespace std;
 
-vector<string> myFunctions::splitStringByDelimiter(string toSplit, string delimiter) {
+vector<string> helperFunctions::splitStringByDelimiter(string toSplit, string delimiter) {
 	toSplit = toSplit + delimiter;
 	vector<string> returnValue;
 	size_t pos = 0;
@@ -15,7 +15,7 @@ vector<string> myFunctions::splitStringByDelimiter(string toSplit, string delimi
 	}
 	return returnValue;
 }
-vector<string> myFunctions::splitStringByDelimiters(string toSplit, vector<string> delimiters)
+vector<string> helperFunctions::splitStringByDelimiters(string toSplit, vector<string> delimiters)
 {
 	string regex_string = "[^";
 
@@ -34,7 +34,7 @@ vector<string> myFunctions::splitStringByDelimiters(string toSplit, vector<strin
 	return returnValue;
 }
 
-vector<beat> myFunctions::getBeats(string url, float sensitivity, unsigned short int count, bool echoProgress)
+vector<beat> helperFunctions::getBeats(string url, float sensitivity, unsigned short int count, bool echoProgress)
 {
 	BeatDetector::Instance()->loadSystem();
 	BeatDetector::Instance()->LoadSong(1024, _strdup(url.c_str()));
@@ -73,7 +73,7 @@ vector<beat> myFunctions::getBeats(string url, float sensitivity, unsigned short
 	return beats;
 }
 
-string myFunctions::doubleToString(double num)
+string helperFunctions::doubleToString(double num)
 {
 	if (fmod(num, 1) == 0) {
 		return to_string(num);

@@ -121,10 +121,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>..\FMOD\inc</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\FMOD\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>fmodex_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -147,12 +150,12 @@
     <ClCompile Include="BeatDetector\Detector\beat.cpp" />
     <ClCompile Include="BeatDetector\Detector\BeatDetector.cpp" />
     <ClCompile Include="BeatDetector\Detector\TimeStamp.cpp" />
-    <ClCompile Include="myFunctions.cpp" />
-    <ClCompile Include="style.cpp" />
-    <ClCompile Include="transition.cpp" />
-    <ClCompile Include="video-generator.cpp" />
-    <ClCompile Include="video.cpp" />
-    <ClCompile Include="word.cpp" />
+    <ClCompile Include="src\helperFunctions.cpp" />
+    <ClCompile Include="src\style.cpp" />
+    <ClCompile Include="src\transition.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\video.cpp" />
+    <ClCompile Include="src\word.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BeatDetector\Detector\beat.h" />
@@ -165,15 +168,16 @@
     <ClInclude Include="BeatDetector\FMOD\inc\fmod_errors.h" />
     <ClInclude Include="BeatDetector\FMOD\inc\fmod_memoryinfo.h" />
     <ClInclude Include="BeatDetector\FMOD\inc\fmod_output.h" />
-    <ClInclude Include="myFunctions.h" />
-    <ClInclude Include="style.h" />
-    <ClInclude Include="transition.h" />
-    <ClInclude Include="transitionSet.h" />
-    <ClInclude Include="video.h" />
-    <ClInclude Include="word.h" />
+    <ClInclude Include="src\helperFunctions.h" />
+    <ClInclude Include="src\style.h" />
+    <ClInclude Include="src\transition.h" />
+    <ClInclude Include="src\transitionSet.h" />
+    <ClInclude Include="src\video.h" />
+    <ClInclude Include="src\word.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="fmodex.dll" />
+    <None Include="README.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
