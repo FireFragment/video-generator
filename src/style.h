@@ -13,10 +13,6 @@ public:
 	style();
 	vector<transitionSet> transitionsSets = { transitionSet()};
 	double speed = 1;
-	/// <summary>
-	/// Speed * this value = spaces between sentences in seconds.
-	/// </summary>
-	double sentences_spaces = 3;
 
 	/// <summary>
 	/// Name of font from Google fonts (https://fonts.google.com/) used by style.
