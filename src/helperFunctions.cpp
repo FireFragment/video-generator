@@ -77,7 +77,7 @@ beatGroup helperFunctions::getBeats(string url, float sensitivity, unsigned shor
 string helperFunctions::doubleToString(double num)
 {
 	if (fmod(num, 1) == 0) {
-		return to_string(num);
+		return to_string((int)num);
 	}
 	return to_string(num).erase(to_string(num).find_last_not_of('0') + 1, string::npos);
 }
