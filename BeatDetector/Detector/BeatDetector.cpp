@@ -269,7 +269,7 @@ void BeatDetector::update()
 			beatThreshold = calculateFluxAndSmoothing(specStereo) / sensitivity;
 
 			//Beat detected
-			if (specFlux > beatThreshold  && (clock() - timeBetween) > 100 )
+			if (specFlux > beatThreshold  && (clock() - timeBetween) > 200 )
 			{
 				smootherValues.push_back(specFlux);
 
