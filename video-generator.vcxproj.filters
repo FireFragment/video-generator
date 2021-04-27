@@ -42,6 +42,9 @@
     <ClCompile Include="BeatDetector\Detector\beat.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BeatDetector\Detector\beatGroup.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\video.h">
@@ -90,6 +93,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="BeatDetector\Detector\beat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BeatDetector\Detector\beatGroup.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -7,6 +7,7 @@
 #include <Windows.h>
 #include "transition.h" 
 #include "../BeatDetector/Detector/BeatDetector.h" 
+#include "../BeatDetector/Detector/BeatGroup.h" 
 using namespace std;
 /// <summary>
 /// Static functions made for this program.
@@ -31,7 +32,7 @@ public:
 	/// <param name="count">Optional, number of required beats. If undefined or 0, function will return all beats in song</param>
 	/// <param name="echoProgress">Optional, if true, progress of detection will be written to console. Defaultly false.</param>
 	/// <returns></returns>
-	static vector<beat> getBeats(string url, float sensitivity = 3, unsigned short int count = 0, bool echoProgress = false);
+	static beatGroup getBeats(string url, float sensitivity = 3, unsigned short int count = 0, bool echoProgress = false);
 	static string doubleToString(double num);
 };
 

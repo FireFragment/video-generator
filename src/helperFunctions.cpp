@@ -1,4 +1,5 @@
 #include "helperFunctions.h"
+#include "../BeatDetector/Detector/beatGroup.h"
 using namespace std;
 
 vector<string> helperFunctions::splitStringByDelimiter(string toSplit, string delimiter) {
@@ -34,7 +35,7 @@ vector<string> helperFunctions::splitStringByDelimiters(string toSplit, vector<s
 	return returnValue;
 }
 
-vector<beat> helperFunctions::getBeats(string url, float sensitivity, unsigned short int count, bool echoProgress)
+beatGroup helperFunctions::getBeats(string url, float sensitivity, unsigned short int count, bool echoProgress)
 {
 	BeatDetector::Instance()->loadSystem();
 	BeatDetector::Instance()->LoadSong(1024, _strdup(url.c_str()));
@@ -43,7 +44,7 @@ vector<beat> helperFunctions::getBeats(string url, float sensitivity, unsigned s
 	bool firstBeat = true;
 
 	beat localLastBeatOccured = beat();
-	vector<beat> beats;
+	beatGroup beats;
 	while (beats.size() <= count) {
 
 		BeatDetector::Instance()->update();

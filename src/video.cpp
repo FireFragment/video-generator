@@ -18,12 +18,10 @@ string video::generate() {
 	*/
 	// Generating CSS animation property.
 	cout << "Analyzing music, please wait..." << endl;
-	vector<beat> beats = helperFunctions::getBeats(style.musicURL, 5, getNeededTransitionsCount(), true);
+	beatGroup beats = helperFunctions::getBeats(style.musicURL, 3, getNeededTransitionsCount(), true);
 	vector<beat> ::iterator beatsIt = beats.begin();
 	anim_id = 0;
 	string previousWordText = "";
-
-
 
 	transitionSet actualSentenceTransitionSet = style.transitionsSets[rand() % style.transitionsSets.size()];
 	for (vector<word> ::iterator it = words.begin(); it != words.end(); ++it) {
@@ -43,7 +41,7 @@ string video::generate() {
 		++beatsIt;
 
 		// Generating @keyframes
-		if (delayFromPreviousAnim >= style.maximumFreqForAdddingTrans) {
+		if (beats.getRelativeTimeAfterBeat(beatsIt - 1) >= /*style.maximumFreqForAdddingTrans*/ 1.5) {
 			keyframesCode += actualSentenceTransitionSet.normalTransition.generateCode(actualWord.text, previousWordText, anim_id, style, actualWord.accentutation);
 			previousWordText = "";
 		}
