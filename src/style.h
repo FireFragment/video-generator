@@ -27,10 +27,10 @@ public:
 	string getEscapedMusicURL();
 
 	/// <summary>
-	/// Time in seconds.
-	/// <para>If is this value bigger than time from previous beat, addingTransition will be used instead of normalTransition.</para>
+	/// Relative time. See <see cref="beatGroup::getRelativeTimeAfterBeat" /> for more info about relative times.
+	/// <para>If is this value bigger than relative time to previous beat, addingTransition will be used instead of normalTransition.</para>
 	/// </summary>
-	float maximumFreqForAdddingTrans = 0.1;
+	float maximumRelTimeDistForAddingTrans = 1.5;
 	/// <summary>
 	/// Time in seconds.
 	/// <para>If is this value bigger than time from previous beat, accentingTransition will be used instead of normalTransition.</para>

@@ -41,7 +41,7 @@ string video::generate() {
 		++beatsIt;
 
 		// Generating @keyframes
-		if (beats.getRelativeTimeAfterBeat(beatsIt - 1) >= /*style.maximumFreqForAdddingTrans*/ 1.5) {
+		if (beats.getRelativeTimeAfterBeat(beatsIt - 1) >= style.maximumRelTimeDistForAddingTrans) {
 			keyframesCode += actualSentenceTransitionSet.normalTransition.generateCode(actualWord.text, previousWordText, anim_id, style, actualWord.accentutation);
 			previousWordText = "";
 		}
