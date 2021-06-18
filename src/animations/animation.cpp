@@ -19,7 +19,7 @@ animation::animation(vector<doubleCSSprop> aviableProps, animationType type, dou
 		appearingProp = new doubleCSSprop(appearingProps[appearingPropIndex]);
 
 		appearingProp->animate(type);
-		push_back(*appearingProp);
+		push_back(appearingProp);
 	}
 
 	// Props, where decorative isn't NULL (and also exclude appearingProp to avoid its overriding).
@@ -28,8 +28,6 @@ animation::animation(vector<doubleCSSprop> aviableProps, animationType type, dou
 		return prop.decorative != NULL 
 			&& (appearingProp != NULL ? (prop.name != appearingProp->name) : true); // Do not repeat appearingProp.
 	});
-
-	delete appearingProp;
 
 	// Add properties until the requestedStrength is reached.
 	while (getStrength() < requestedStrength && accentingProps.size() != 0) {
@@ -43,7 +41,7 @@ animation::animation(vector<doubleCSSprop> aviableProps, animationType type, dou
 			toAdd.animation->animation.swap();
 		}
 
-		push_back(toAdd);
+		push_back(new doubleCSSprop(toAdd));
 	}
 }
 
@@ -51,11 +49,11 @@ const string animation::generate(string name)
 {
 	string out = "@keyframes " + name + "{from{";
 	for (auto& i : *this) {
-		out += i.generate(*i.animation->animation.min) + "";
+		out += i->generate(*i->animation->animation.min) + "";
 	}
 	out += "}to{";
 	for (auto& i : *this) {
-		out += i.generate(*i.animation->animation.max) + "";
+		out += i->generate(*i->animation->animation.max) + "";
 	}
 	out += "}}";
 	return out;

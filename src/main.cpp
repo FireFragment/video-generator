@@ -26,7 +26,7 @@ int main()
 			"margin-left", 0.3, "0",
 			new range<double>(100, 100),
 			{ range<double>(-150, -90), range<double>(150, 90) },
-			new range<double>(-3, 3),
+			new range<double>(-10, 10),
 			"", "vw"),
 		doubleCSSprop(
 			"opacity", 1, "1",
@@ -37,16 +37,23 @@ int main()
 			new range<double>(10, 0),
 			{ range<double>(0, 0.3) },
 			new range<double>(0.7, 1.3),
-			"scale(", ")")
+			"scale(", ")"),
+		doubleCSSprop(
+			"filter", 10, "0",
+			new range<double>(0, NULL),
+			{},
+			new range<double>(0, 10),
+			"blur(", "px)"
+		)
 
 	};
 	for (unsigned short i = 1; i < 100; i++) {
-		animation anim(props, animationType::appearing, 2000);
+		animation anim(props, animationType::appearing, 10);
 		cout << anim.generate("a" + to_string(i));
 	}
 
 	for (unsigned short i = 1; i < 100; i++) {
-		animation anim(props, animationType::disappearing, 2000);
+		animation anim(props, animationType::disappearing, 10);
 		cout << anim.generate("d" + to_string(i));
 	}
 

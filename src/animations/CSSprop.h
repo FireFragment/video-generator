@@ -116,7 +116,7 @@ public:
 		return *this;
 	}
 
-	virtual double calcAnimStrength() { return 0; };
+	virtual const double calcAnimStrength() { return 0; };
 };
 
 class doubleCSSprop : public CSSprop
@@ -185,11 +185,11 @@ public:
 		double toReturn = val * strength;
 		return val * strength;
 	}
-	double calcAnimStrength() {
+
+	const double calcAnimStrength() {
 		if (animation == NULL)
 			throw logic_error("Animation was NULL when tried to calculate it's strength.");
-		double toReturn = calcStrength(abs(animation->animation.min - animation->animation.max));
-		return toReturn;
+		return calcStrength(abs(animation->animation.min - animation->animation.max));
 	}
 
 	using CSSprop::CSSprop;

@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class animation : public vector<CSSprop>
+class animation : public vector<CSSprop*>
 {
 public:
 	animationType type = animationType::accenting;
@@ -21,7 +21,7 @@ public:
 	const double getStrength() {
 		double result = 0;
 		for (iterator it = begin(); it != end(); ++it)
-			result += it->calcAnimStrength();
+			result += (*it)->calcAnimStrength();
 		return result;
 	}
 
