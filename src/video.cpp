@@ -1,73 +1,37 @@
 #include "video.h"
 
 const string video::generate() {
-	/*
-	string animationProperty;
-	string keyframesCode;
-	string HTML;
-
-	//Count of already added <h1> elements in HTML variable
-	int HTMLElementsCount;
-	int anim_id = 0;
-	double delay = 0;
-
-	// Generating CSS animation property.
 	cout << "Analyzing music, please wait..." << endl;
 	beatGroup beats = helperFunctions::getBeats(style.musicURL, 3, getNeededTransitionsCount(), true);
-	vector<beat> ::iterator beatsIt = beats.begin();
-	anim_id = 0;
-	string previousWordText = "";
-
-	transitionSet actualSentenceTransitionSet = style.transitionsSets[rand() % style.transitionsSets.size()];
-
-	for (vector<word> ::iterator it = words.begin(); it != words.end(); ++it) {
-
-
-		// Generating CSS animation property
-		word actualWord = *it;
-
-		beat actualBeat = *beatsIt;
-		double delayFromPreviousAnim = actualBeat.time - delay;
-		delay = actualBeat.time;
-		animationProperty += "a" + to_string(anim_id) + " " + helperFunctions::doubleToString(delayFromPreviousAnim * (double)style.speed) + "0s ease " + helperFunctions::doubleToString(delay) + "0s running normal forwards,";
-
-
-		bool atEnd = beatsIt == beats.end();
-		if (beatsIt == beats.end()) {
-			beatsIt = beats.begin();
-		}
-		++beatsIt;
-		/*
-		// Generating @keyframes
-		if (beats.getRelativeTimeAfterBeat(beatsIt - 1) >= style.maximumRelTimeDistForAddingTrans) {
-			keyframesCode += actualSentenceTransitionSet.normalTransition.generateCode(actualWord.text, previousWordText, anim_id, style, actualWord.accentutation);
-			previousWordText = "";
-		}
-		else
-			keyframesCode += actualSentenceTransitionSet.addingTransition.generateCode(previousWordText + " " + actualWord.text, previousWordText, anim_id, style, actualWord.accentutation);
-		
-		previousWordText += " " + actualWord.text;
-
-		anim_id++;
-	}*/
-
-	string keyframesCode;
-
-	for (unsigned short i = 1; i < 100; i++) {
-		animation anim(doubleCSSprop::props, animationType::appearing, 10);
-		keyframesCode += anim.generate("a" + to_string(i));
-	}
-
-	for (unsigned short i = 1; i < 100; i++) {
-		animation anim(doubleCSSprop::props, animationType::disappearing, 10);
-		keyframesCode += anim.generate("d" + to_string(i));
-	}
-
-	return "<!DOCTYPE html><html lang='en'><head><meta charset='utf - 8'><title>Video</title><script>var audio=new Audio('" + style.getEscapedMusicURL() + "');audio.play()</script><style>" + style.baseCSS + keyframesCode + "</style></head><body>" + generateHTML()  + "</body></html><!-- Generated with Maty1000's video generator. -->";
+	assignBeatsToWords(&beats);
+	return "<!DOCTYPE html><html lang='en'><head><meta charset='utf - 8'><title>Video</title><script>var audio=new Audio('" + style.getEscapedMusicURL() + "');audio.play()</script><style>" + style.baseCSS + generateKeyframes() + "</style></head><body>" + generateHTML(beats) + "</body></html><!-- Generated with Maty1000's video generator. -->";
 }
+
+const string video::generateKeyframes(short startFrom)
+{
+	string out;
+
+	// Appearing animations
+	unsigned short i = startFrom;
+	for (auto currentWord : words) {
+		animation anim(doubleCSSprop::props, animationType::appearing, 10);
+		out += anim.generate("a" + to_string(i));
+		i++;
+	}
+
+	// Disappearing animations
+	i = startFrom;
+	for (auto currentWord : words) {
+		animation anim(doubleCSSprop::props, animationType::disappearing, 10);
+		out += anim.generate("d" + to_string(i));
+		i++;
+	}
+
+	return out;
+}
+
 unsigned short int video::getNeededTransitionsCount()
 {
-
 	return words.size();
 }
 
@@ -80,23 +44,33 @@ video::video(string text) {
 }
 
 const string video::generateHTML(
+	beatGroup& beats,
 	string element,
 	string appearingAnimIdPrefix, string appearingAnimIdPostfix,
 	string disappearingAnimIdPrefix, string disappearingAnimIdPostfix,
-	unsigned short startFrom) {
+	short startFrom) {
 
 	string out;
-	double delay = 0;
 	unsigned short i = startFrom;
 
 	for (auto const& currentWord : words) {
-		out += generateHTMLElem(currentWord.text, "h1", 
+		const double presenceTime = 0;
+
+		double currentAnimDuration = currentWord.correspondingBeat->time;
+
+		// Validate currentWord.correspondingBeat-1 only if it isn't at beggining of the vector.
+		if (currentWord.correspondingBeat != beats.begin()) {
+			currentAnimDuration -= (currentWord.correspondingBeat - 1)->time;
+		}
+
+		currentAnimDuration /= 4;
+
+		out += generateHTMLElem(currentWord.text, "h1",
 			generateAnimationCSS(
-				{ 
-					animationCSS(   appearingAnimIdPrefix + to_string(i) +    appearingAnimIdPostfix, currentWord.anim.duration, animationCSS::fillMode::backwards, delay),
-					animationCSS(disappearingAnimIdPrefix + to_string(i) + disappearingAnimIdPostfix, currentWord.anim.duration, animationCSS::fillMode::forwards,  delay + currentWord.anim.duration)
+				{
+					animationCSS(appearingAnimIdPrefix + to_string(i) + appearingAnimIdPostfix, currentAnimDuration, animationCSS::fillMode::backwards, currentWord.correspondingBeat->time),
+					animationCSS(disappearingAnimIdPrefix + to_string(i) + disappearingAnimIdPostfix, currentAnimDuration, animationCSS::fillMode::forwards, currentWord.correspondingBeat->time + currentAnimDuration + presenceTime)
 				}));
-		delay += currentWord.anim.duration;
 		i++;
 	}
 	return out;
@@ -113,4 +87,16 @@ const string video::generateAnimationCSS(vector<animationCSS> anims)
 	for (auto anim : anims)
 		out += anim.generate() + ",";
 	return out.substr(0, out.size() - 1); // Remove extra colon from end
+}
+
+void video::assignBeatsToWords(beatGroup* beats)
+{
+	beatGroup::iterator currentBeat = beats->begin();
+	for (
+		vector<word>::iterator currentWord = words.begin();
+		currentWord != words.end() && currentBeat != beats->end();
+		currentWord++, currentBeat++) {
+
+		currentWord->correspondingBeat = currentBeat;
+	}
 }

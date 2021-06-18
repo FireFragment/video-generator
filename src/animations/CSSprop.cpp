@@ -4,7 +4,7 @@ const vector<doubleCSSprop> doubleCSSprop::props = {
 	doubleCSSprop(
 		"margin-left", 0.3, "0",
 		new range<double>(100, 100),
-		{ range<double>(-150, -90), range<double>(150, 90) },
+		{/* range<double>(-150, -90), range<double>(150, 90) */},
 		new range<double>(-10, 10),
 		"", "vw"),
 	doubleCSSprop(
@@ -14,7 +14,7 @@ const vector<doubleCSSprop> doubleCSSprop::props = {
 	doubleCSSprop(
 		"transform", 2, "1",
 		new range<double>(10, 0),
-		{ range<double>(0, 0.3) },
+		{ /*range<double>(0, 0.3)*/ },
 		new range<double>(0.7, 1.3),
 		"scale(", ")"),
 	doubleCSSprop(

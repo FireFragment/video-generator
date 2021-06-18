@@ -22,10 +22,12 @@ public:
 	style style;
 
 	const string generateHTML(
+		beatGroup& beats,
 		string element = "h1", 
 		string appearingAnimIdPrefix    = "a", string appearingAnimIdPostfix    = "",
 		string disappearingAnimIdPrefix = "d", string disappearingAnimIdPostfix = "",
-		unsigned short startFrom = 1);
+		short startFrom = 1);
+	const string generateKeyframes(short startFrom = 1);
 
 	/// <param name="content">Body of the element</param>
 	/// <param name="element">Type of the element</param>
@@ -36,6 +38,8 @@ public:
 
 	/// <returns>CSS <c>animation</c> property.</returns>
 	static const string generateAnimationCSS(vector<animationCSS> anims);
+
+	void assignBeatsToWords(beatGroup* beats);
 private:
 	/// <returns>Count of transitions in video.</returns>
 	unsigned short int getNeededTransitionsCount();

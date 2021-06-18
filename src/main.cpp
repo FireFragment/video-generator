@@ -21,42 +21,6 @@ void showvector(vector <string> g)
 
 int main()
 {
-	vector<doubleCSSprop> props = {
-		doubleCSSprop(
-			"margin-left", 0.3, "0",
-			new range<double>(100, 100),
-			{ range<double>(-150, -90), range<double>(150, 90) },
-			new range<double>(-10, 10),
-			"", "vw"),
-		doubleCSSprop(
-			"opacity", 1, "1",
-			new range<double>(0, 1),
-			{ range<double>(0, 0.5) }),
-		doubleCSSprop(
-			"transform", 2, "1",
-			new range<double>(10, 0),
-			{ range<double>(0, 0.3) },
-			new range<double>(0.7, 1.3),
-			"scale(", ")"),
-		doubleCSSprop(
-			"filter", 10, "0",
-			new range<double>(0, NULL),
-			{},
-			new range<double>(0, 10),
-			"blur(", "px)"
-		)
-	};
-	for (unsigned short i = 1; i < 100; i++) {
-		animation anim(props, animationType::appearing, 10);
-		cout << anim.generate("a" + to_string(i));
-	}
-
-	for (unsigned short i = 1; i < 100; i++) {
-		animation anim(props, animationType::disappearing, 10);
-		cout << anim.generate("d" + to_string(i));
-	}
-
-	cout << endl << endl << endl;
 	video video("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Et ultrices neque ornare aenean. Ante in nibh mauris cursus mattis molestie. Ultrices tincidunt arcu non sodales neque sodales ut etiam. Purus gravida quis blandit turpis cursus in. Pellentesque sit amet porttitor eget dolor morbi non arcu risus. Cras fermentum odio eu feugiat pretium nibh ipsum consequat. A cras semper auctor neque vitae tempus quam pellentesque nec. Ornare suspendisse sed nisi lacus sed viverra tellus in. Diam in arcu cursus euismod quis.");
 	cout << "DEVELOPMENT VERSION, DO NOT USE!\n\nIt's recommended to use rhytmical musics.\nEnter the path of music: ";
 	getline(cin, video.style.musicURL);
