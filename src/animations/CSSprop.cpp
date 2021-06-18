@@ -4,8 +4,8 @@ const vector<doubleCSSprop> doubleCSSprop::props = {
 	doubleCSSprop(
 		"margin-left", 0.3, "0",
 		new range<double>(100, 100),
-		{ range<double>(-60, -50), range<double>(60, 50) },
-		new range<double>(-3, 3),
+		{ range<double>(-150, -90), range<double>(150, 90) },
+		new range<double>(-10, 10),
 		"", "vw"),
 	doubleCSSprop(
 		"opacity", 1, "1",
@@ -16,8 +16,14 @@ const vector<doubleCSSprop> doubleCSSprop::props = {
 		new range<double>(10, 0),
 		{ range<double>(0, 0.3) },
 		new range<double>(0.7, 1.3),
-		"scale(", ")")
-
+		"scale(", ")"),
+	doubleCSSprop(
+		"filter", 10, "0",
+		new range<double>(0, NULL),
+		{},
+		new range<double>(0, 10),
+		"blur(", "px)"
+	)
 };
 
 const float CSSprop::animateStrengthRandomness = 0.2;
@@ -47,7 +53,7 @@ void doubleCSSprop::animate(const animationType type, float strength)
 		animation = new CSSpropAnimationData(range<string>(
 			helperFunctions::doubleToString(
 				*badVisibility[rand() % badVisibility.size()].min
-			), 
+			),
 			inital));
 		return;
 	}

@@ -1,8 +1,7 @@
 #include "video.h"
 
 const string video::generate() {
-	cout << generateHTML();
-
+	/*
 	string animationProperty;
 	string keyframesCode;
 	string HTML;
@@ -46,16 +45,25 @@ const string video::generate() {
 		}
 		else
 			keyframesCode += actualSentenceTransitionSet.addingTransition.generateCode(previousWordText + " " + actualWord.text, previousWordText, anim_id, style, actualWord.accentutation);
-		*/
+		
 		previousWordText += " " + actualWord.text;
 
 		anim_id++;
+	}*/
+
+	string keyframesCode;
+
+	for (unsigned short i = 1; i < 100; i++) {
+		animation anim(doubleCSSprop::props, animationType::appearing, 10);
+		keyframesCode += anim.generate("a" + to_string(i));
 	}
 
-	//Removing ", " at end of animation property
-	animationProperty = animationProperty.substr(0, animationProperty.length() - 1);
+	for (unsigned short i = 1; i < 100; i++) {
+		animation anim(doubleCSSprop::props, animationType::disappearing, 10);
+		keyframesCode += anim.generate("d" + to_string(i));
+	}
 
-	return "<!DOCTYPE html><html lang='en'><head><meta charset='utf - 8'><title>Video</title><script>var audio=new Audio('" + style.getEscapedMusicURL() + "');audio.play()</script><style>" + style.baseCSS + "h1::after{animation: " + animationProperty + ";content:''} " + keyframesCode + "</style></head><body><h1></h1></body></html><!-- Generated with Maty1000's video generator. -->";
+	return "<!DOCTYPE html><html lang='en'><head><meta charset='utf - 8'><title>Video</title><script>var audio=new Audio('" + style.getEscapedMusicURL() + "');audio.play()</script><style>" + style.baseCSS + keyframesCode + "</style></head><body>" + generateHTML()  + "</body></html><!-- Generated with Maty1000's video generator. -->";
 }
 unsigned short int video::getNeededTransitionsCount()
 {

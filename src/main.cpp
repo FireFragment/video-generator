@@ -45,7 +45,6 @@ int main()
 			new range<double>(0, 10),
 			"blur(", "px)"
 		)
-
 	};
 	for (unsigned short i = 1; i < 100; i++) {
 		animation anim(props, animationType::appearing, 10);
@@ -67,5 +66,5 @@ int main()
 
 	// Close the file
 	OutFile.close();
-	//system("generated.html");
+	system("generated.html");
 }
