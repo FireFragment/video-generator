@@ -8,6 +8,7 @@
 #include "helperFunctions.h"
 #include "transitionSet.h"
 #include "word.h"
+#include "animations/animationCSS.h"
 using namespace std;
 
 class video
@@ -16,11 +17,26 @@ public:
 	/// <param name="text">represents text of new video.</param>
 	video(string text);
 	/// <returns>HTML code with result video containing CSS and JS. </returns>
-	string generate();
+	string const generate();
 	vector <word> words;
 	style style;
+
+	const string generateHTML(
+		string element = "h1", 
+		string appearingAnimIdPrefix    = "a", string appearingAnimIdPostfix    = "",
+		string disappearingAnimIdPrefix = "d", string disappearingAnimIdPostfix = "",
+		unsigned short startFrom = 1);
+
+	/// <param name="content">Body of the element</param>
+	/// <param name="element">Type of the element</param>
+	/// <param name="id">ID of the element (empty by default)</param>
+	/// <param name="style">CSS of the element (empty by default)</param>
+	/// <returns>HTML element</returns>
+	static const string generateHTMLElem(string content, string element, string style = "");
+
+	/// <returns>CSS <c>animation</c> property.</returns>
+	static const string generateAnimationCSS(vector<animationCSS> anims);
 private:
 	/// <returns>Count of transitions in video.</returns>
 	unsigned short int getNeededTransitionsCount();
 };
-

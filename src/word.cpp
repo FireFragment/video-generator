@@ -3,8 +3,6 @@
 void word::changeWord(string textOfWord)
 {
 	text = textOfWord;
-
-	
 }
 
 word::word(string textOfWord) {

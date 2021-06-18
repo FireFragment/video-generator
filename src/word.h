@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include "animations/animation.h"
 using namespace std;
 class word
 {
@@ -9,6 +10,8 @@ public:
 	void changeWord(string textOfWord);
 	word(string textOfWord);
 	string text;
+
+	animation anim;
 
 	// TODO: Add accentutation 2 description or remove it.
 	/// <summary>

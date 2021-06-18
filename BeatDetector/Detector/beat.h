@@ -1,5 +1,5 @@
 #pragma once
-#include "TimeStamp.h";
+#include "TimeStamp.h"
 #include <iostream>
 class beat
 {
@@ -9,6 +9,7 @@ public:
 	/// </summary>
 	float time;
 	float strength = 1;
+	float threshold;
 	/// <summary>
 	/// Creates new beat at time.
 	/// </summary>
