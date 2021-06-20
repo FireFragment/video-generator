@@ -283,7 +283,8 @@ void BeatDetector::update()
 				TimeStamp* t = new TimeStamp(currentMinutes, currentSeconds, currentMillis, specFlux);
 
 				lastBeatRegistered = beat(*t);
-				lastBeatRegistered.strength = specFlux - beatThreshold / sensitivity;
+				lastBeatRegistered.strength = specFlux;
+				lastBeatRegistered.threshold = beatThreshold;
 			}
 			else if ((clock() - timeBetween) > 5000)
 			{

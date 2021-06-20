@@ -1,8 +1,10 @@
 #pragma once
+/*
 #include <list>
-#include "transition.h"
+#include "transition.h"*/
 class transitionSet
 {
+	/*
 	public:	
 	transition normalTransition = transition();
 	transition addingTransition = transition(transition_adding);
@@ -10,4 +12,5 @@ class transitionSet
 	normalTransition = normal;
 	addingTransition = adding;
 	};
-};;
+	*/
+};

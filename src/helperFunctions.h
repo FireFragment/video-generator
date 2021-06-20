@@ -5,9 +5,10 @@
 #include <algorithm>
 #include <regex>
 #include <Windows.h>
-#include "transition.h" 
 #include "../BeatDetector/Detector/BeatDetector.h" 
 #include "../BeatDetector/Detector/BeatGroup.h" 
+#include "../BeatDetector/Detector/BeatGroup.h" 
+#include "range.h" 
 using namespace std;
 /// <summary>
 /// Static functions made for this program.
@@ -34,5 +35,21 @@ public:
 	/// <returns></returns>
 	static beatGroup getBeats(string url, float sensitivity = 3, unsigned short int count = 0, bool echoProgress = false);
 	static string doubleToString(double num);
+	static double doubleRandBetween(range<double> _range);
+
+	/// <summary>
+	/// Move value randomly (and by random amount) up or down.
+	/// </summary>
+	/// <param name="n">Value to move</param>
+	/// <param name="amount">How much can be <paramref name="n"/> moved</param>
+	/// <returns>Moved value</returns>
+	static double addNoise(double n, double amount);
+
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <param name="n"></param>
+	/// <returns><paramref name="n"/> with 50% probability to be flipped around 0.</returns>
+	static double randomSign(double n);
 };
 

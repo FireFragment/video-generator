@@ -1,5 +1,4 @@
 #include "helperFunctions.h"
-#include "../BeatDetector/Detector/beatGroup.h"
 using namespace std;
 
 vector<string> helperFunctions::splitStringByDelimiter(string toSplit, string delimiter) {
@@ -82,5 +81,17 @@ string helperFunctions::doubleToString(double num)
 	return to_string(num).erase(to_string(num).find_last_not_of('0') + 1, string::npos);
 }
 
+double helperFunctions::doubleRandBetween(range<double> _range)
+{
+	return *_range.min + static_cast<double> (rand()) / (static_cast<double> (RAND_MAX / (*_range.max - *_range.min)));
+}
 
+double helperFunctions::addNoise(double n, double amount)
+{
+	return helperFunctions::doubleRandBetween(range<double>(n - amount, n + amount));
+}
 
+double helperFunctions::randomSign(double n)
+{
+	return rand()%2 ? n : 0-n;
+}

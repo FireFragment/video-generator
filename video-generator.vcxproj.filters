@@ -36,13 +36,22 @@
     <ClCompile Include="BeatDetector\Detector\TimeStamp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\transition.cpp">
+    <ClCompile Include="src\animations\animation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="BeatDetector\Detector\beat.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="BeatDetector\Detector\beatGroup.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\animations\CSSprop.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\animations\CSSpropList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\animations\animationCSS.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -86,7 +95,7 @@
     <ClInclude Include="BeatDetector\FMOD\inc\fmod_output.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\transition.h">
+    <ClInclude Include="src\animations\animation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\transitionSet.h">
@@ -96,6 +105,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="BeatDetector\Detector\beatGroup.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\animations\CSSprop.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\animations\CSSpropList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\range.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\animations\animationCSS.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

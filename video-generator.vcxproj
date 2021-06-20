@@ -90,7 +90,8 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>
       </AdditionalIncludeDirectories>
-      <LanguageStandard>stdcpp14</LanguageStandard>
+      <LanguageStandard>
+      </LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -148,18 +149,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\animations\animationCSS.cpp" />
     <ClCompile Include="BeatDetector\Detector\beatGroup.cpp" />
     <ClCompile Include="BeatDetector\Detector\beat.cpp" />
     <ClCompile Include="BeatDetector\Detector\BeatDetector.cpp" />
     <ClCompile Include="BeatDetector\Detector\TimeStamp.cpp" />
+    <ClCompile Include="src\animations\CSSpropList.cpp" />
+    <ClCompile Include="src\animations\CSSprop.cpp" />
     <ClCompile Include="src\helperFunctions.cpp" />
     <ClCompile Include="src\style.cpp" />
-    <ClCompile Include="src\transition.cpp" />
+    <ClCompile Include="src\animations\animation.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\video.cpp" />
     <ClCompile Include="src\word.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\animations\animationCSS.h" />
     <ClInclude Include="BeatDetector\Detector\beat.h" />
     <ClInclude Include="BeatDetector\Detector\BeatDetector.h" />
     <ClInclude Include="BeatDetector\Detector\TimeStamp.h" />
@@ -171,9 +176,12 @@
     <ClInclude Include="BeatDetector\FMOD\inc\fmod_memoryinfo.h" />
     <ClInclude Include="BeatDetector\FMOD\inc\fmod_output.h" />
     <ClInclude Include="BeatDetector\Detector\beatGroup.h" />
+    <ClInclude Include="src\range.h" />
+    <ClInclude Include="src\animations\CSSpropList.h" />
+    <ClInclude Include="src\animations\CSSprop.h" />
     <ClInclude Include="src\helperFunctions.h" />
     <ClInclude Include="src\style.h" />
-    <ClInclude Include="src\transition.h" />
+    <ClInclude Include="src\animations\animation.h" />
     <ClInclude Include="src\transitionSet.h" />
     <ClInclude Include="src\video.h" />
     <ClInclude Include="src\word.h" />

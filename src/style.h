@@ -11,7 +11,7 @@ class style
 {
 public:
 	style();
-	vector<transitionSet> transitionsSets = { transitionSet()};
+	vector<transitionSet> transitionsSets = { transitionSet() };
 	double speed = 1;
 
 	/// <summary>

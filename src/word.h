@@ -1,5 +1,8 @@
 #pragma once
 #include <string>
+#include "animations/animation.h"
+#include "../BeatDetector/Detector/beatGroup.h"
+
 using namespace std;
 class word
 {
@@ -9,6 +12,8 @@ public:
 	void changeWord(string textOfWord);
 	word(string textOfWord);
 	string text;
+
+	beatGroup::iterator correspondingBeat;
 
 	// TODO: Add accentutation 2 description or remove it.
 	/// <summary>
