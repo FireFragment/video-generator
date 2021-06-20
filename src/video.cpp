@@ -2,7 +2,7 @@
 
 const string video::generate() {
 	cout << "Analyzing music, please wait..." << endl;
-	beatGroup beats = helperFunctions::getBeats(style.musicURL, 3, getNeededTransitionsCount(), true);
+	beatGroup beats = helperFunctions::getBeats(style.musicURL, 1.2, getNeededTransitionsCount(), true);
 	assignBeatsToWords(&beats);
 	return "<!DOCTYPE html><html lang='en'><head><meta charset='utf - 8'><title>Video</title><script>var audio=new Audio('" + style.getEscapedMusicURL() + "');audio.play()</script><style>" + style.baseCSS + generateKeyframes() + "</style></head><body>" + generateHTML(beats) + "</body></html><!-- Generated with Maty1000's video generator. -->";
 }
