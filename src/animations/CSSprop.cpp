@@ -5,7 +5,7 @@ const vector<doubleCSSprop> doubleCSSprop::props = {
 		"margin-left", 0.3, "0",
 		new range<double>(100, 100),
 		{/* range<double>(-150, -90), range<double>(150, 90) */},
-		new range<double>(-10, 10),
+		new range<double>(-30, 30),
 		"", "vw"),
 	doubleCSSprop(
 		"opacity", 1, "1",
@@ -15,13 +15,13 @@ const vector<doubleCSSprop> doubleCSSprop::props = {
 		"transform", 2, "1",
 		new range<double>(10, 0),
 		{ /*range<double>(0, 0.3)*/ },
-		new range<double>(0.7, 1.3),
+		new range<double>(0.5, 2),
 		"scale(", ")"),
 	doubleCSSprop(
 		"filter", 10, "0",
 		new range<double>(0, NULL),
 		{},
-		new range<double>(0, 10),
+		new range<double>(0, 100),
 		"blur(", "px)"
 	)
 };
