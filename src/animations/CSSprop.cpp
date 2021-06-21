@@ -70,6 +70,9 @@ void doubleCSSprop::animate(const animationType type, float strength)
 			throw logic_error("Requested accenting animation, but decorative is NULL. Set decorative before requesting accenting animation, or, if property isn't decorative, don't try to animate it.");
 
 		try {
+
+			double minOrMaxOfDecorative = (rand() % 2) ? *decorative->min : *decorative->max;
+
 			animation = new CSSpropAnimationData(range<string>(
 				// START
 				inital,
@@ -81,7 +84,7 @@ void doubleCSSprop::animate(const animationType type, float strength)
 						range<double>::around(
 							// Main part
 							range<double>(
-								*decorative->max,
+								minOrMaxOfDecorative,
 								stoi(inital)).avg(strength),
 							CSSprop::animateStrengthRandomness)))));
 
