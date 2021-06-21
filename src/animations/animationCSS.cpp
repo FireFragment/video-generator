@@ -1,8 +1,11 @@
 #include "animationCSS.h"
 
-const map<animationCSS::easing::easingPreset, animationCSS::easing> animationCSS::easing::presets = {
-	pair<animationCSS::easing::easingPreset, animationCSS::easing>(easeOut, animationCSS::easing(range<double>(0.22, 1),range<double>(0.36, 1))),
-	pair<animationCSS::easing::easingPreset, animationCSS::easing>(easeIn,  animationCSS::easing(range<double>(0.64, 0),range<double>(0.78, 0)))
+const map<animationCSS::easing::inEasingPreset, animationCSS::easing> animationCSS::easing::inPresets = {
+	pair<animationCSS::easing::inEasingPreset, animationCSS::easing>(easeIn,  animationCSS::easing(range<double>(0.64, 0),range<double>(0.78, 0)))
+};
+
+const map<animationCSS::easing::outEasingPreset, animationCSS::easing> animationCSS::easing::outPresets = {
+	pair<animationCSS::easing::outEasingPreset, animationCSS::easing>(easeOut,  animationCSS::easing(range<double>(0.64, 0),range<double>(0.78, 0)))
 };
 
 const string animationCSS::generateFillMode()

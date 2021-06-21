@@ -29,19 +29,31 @@ public:
 				helperFunctions::doubleToString(*min->min) + "," +
 				helperFunctions::doubleToString(*min->max) + "," +
 				helperFunctions::doubleToString(*max->min) + "," +
-				helperFunctions::doubleToString(*max->max)
-				+ ")";
+				helperFunctions::doubleToString(*max->max) + ")";
 		}
-		enum easingPreset {
-			easeIn,
+
+		enum class type {
+			in, out
+		};
+
+		enum inEasingPreset {
+			easeIn
+		};
+
+		enum outEasingPreset {
 			easeOut
 		};
 
-		easing(easingPreset preset) {
-			*this = presets.at(preset);
+		easing(inEasingPreset preset) {
+			*this = inPresets.at(preset);
 		};
 
-		static const map<easingPreset, easing> presets;
+		easing(outEasingPreset preset) {
+			*this = outPresets.at(preset);
+		};
+
+		static const map<inEasingPreset, easing> inPresets;
+		static const map<outEasingPreset, easing> outPresets;
 
 		easing(range<double> _min = range<double>(0.5, 0.5), range<double> _max = range<double>(0.5, 0.5)): range<range<double>>(_min, _max) {}
 	};
