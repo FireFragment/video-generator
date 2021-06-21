@@ -40,6 +40,6 @@ public:
 	/// <summary>
 	/// How strong animations in the video are.
 	/// </summary>
-	double animationStrength = 10;
+	double animationStrength = 40;
 };
 
