@@ -44,6 +44,18 @@ public:
 			easeOut
 		};
 
+		easing(type _type) {
+			if (_type == type::in) {
+				map<inEasingPreset, easing>::const_iterator item = inPresets.begin();
+				advance(item, rand() % inPresets.size());
+				*this = item->second;
+			} else {
+				map<outEasingPreset, easing>::const_iterator item = outPresets.begin();
+				advance(item, rand() % outPresets.size());
+				*this = item->second;
+			}
+		};
+
 		easing(inEasingPreset preset) {
 			*this = inPresets.at(preset);
 		};
