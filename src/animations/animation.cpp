@@ -3,6 +3,7 @@
 animation::animation(vector<doubleCSSprop> aviableProps, animationType type, double requestedStrength) : type(type)
 {
 	doubleCSSprop* appearingProp = NULL;
+
 	// At least one appearing/disappearing CSS property is needed when type is not accenting.
 	if (type != animationType::accenting) {
 		vector<doubleCSSprop> appearingProps;
@@ -51,10 +52,24 @@ const string animation::generate(string name)
 	for (auto& i : *this) {
 		out += i->generate(*i->animation->animation.min) + "";
 	}
+
+	if (type == animationType::appearing) {
+		out += "opacity:0;}1%{opacity:1;";
+	}
+
+	if (type == animationType::disappearing) {
+		out += "}99%{opacity:1;";
+	}
+
 	out += "}to{";
 	for (auto& i : *this) {
 		out += i->generate(*i->animation->animation.max) + "";
 	}
+
+	if (type == animationType::disappearing) {
+		out += "opacity:0;";
+	}
+
 	out += "}}";
 	return out;
 }

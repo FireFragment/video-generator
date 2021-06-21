@@ -174,7 +174,7 @@ public:
 		decorative = _decorative;
 	}
 
-	void animate(const animationType type = animationType::accenting, float strength = 0.5);
+	void animate(const animationType type, float strength = 0.5);
 
 	/// <summary>
 	///		How strong the property is per one unit. <example>eg. Opacity has 1.</example>

@@ -9,6 +9,8 @@ public:
 	T* max = NULL;
 	T* min = NULL;
 
+	range() {}
+
 	/// <summary>
 	/// Creates new range around <paramref name="average"/> and min and max are <paramref name="distance"/> far from <paramref name="average"/>.
 	/// </summary>

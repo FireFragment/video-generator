@@ -8,6 +8,7 @@ using namespace std;
 class animation : public vector<CSSprop*>
 {
 public:
+
 	animationType type = animationType::accenting;
 
 	/// <summary>
