@@ -54,22 +54,20 @@ const string video::generateHTML(
 	unsigned short i = startFrom;
 
 	for (auto const& currentWord : words) {
-		const double presenceTime = 0;
-
 		double currentAnimDuration = currentWord.correspondingBeat->time;
 
 		// Validate currentWord.correspondingBeat-1 only if it isn't at beggining of the vector.
-		if (currentWord.correspondingBeat != beats.begin()) {
-			currentAnimDuration -= (currentWord.correspondingBeat - 1)->time;
+		if (currentWord.correspondingBeat != beats.end()) {
+			currentAnimDuration -= (currentWord.correspondingBeat + 1)->time;
 		}
-
-		currentAnimDuration /= 4;
+		currentAnimDuration = abs(currentAnimDuration);
+		currentAnimDuration /= 2;
 
 		out += generateHTMLElem(currentWord.text, "h1",
 			generateAnimationCSS(
 				{
 					animationCSS(appearingAnimIdPrefix + to_string(i) + appearingAnimIdPostfix, currentAnimDuration, animationCSS::fillMode::backwards, currentWord.correspondingBeat->time),
-					animationCSS(disappearingAnimIdPrefix + to_string(i) + disappearingAnimIdPostfix, currentAnimDuration, animationCSS::fillMode::forwards, currentWord.correspondingBeat->time + currentAnimDuration + presenceTime)
+					animationCSS(disappearingAnimIdPrefix + to_string(i) + disappearingAnimIdPostfix, currentAnimDuration, animationCSS::fillMode::forwards, currentWord.correspondingBeat->time + currentAnimDuration)
 				}));
 		i++;
 	}
