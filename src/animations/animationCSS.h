@@ -37,11 +37,13 @@ public:
 		};
 
 		enum inEasingPreset {
-			easeIn
+			easeIn,
+			bounceIn
 		};
 
 		enum outEasingPreset {
-			easeOut
+			easeOut,
+			bounceOut
 		};
 
 		easing(type _type) {
