@@ -66,8 +66,8 @@ const string video::generateHTML(
 		out += generateHTMLElem(currentWord.text, "h1",
 			generateAnimationCSS(
 				{
-					animationCSS(appearingAnimIdPrefix + to_string(i) + appearingAnimIdPostfix, currentAnimDuration, animationCSS::fillMode::backwards, currentWord.correspondingBeat->time),
-					animationCSS(disappearingAnimIdPrefix + to_string(i) + disappearingAnimIdPostfix, currentAnimDuration, animationCSS::fillMode::forwards, currentWord.correspondingBeat->time + currentAnimDuration)
+					animationCSS(   appearingAnimIdPrefix + to_string(i) +    appearingAnimIdPostfix, currentAnimDuration, animationCSS::fillMode::backwards, animationCSS::easing::easeOut, currentWord.correspondingBeat->time),
+					animationCSS(disappearingAnimIdPrefix + to_string(i) + disappearingAnimIdPostfix, currentAnimDuration, animationCSS::fillMode:: forwards, animationCSS::easing::easeIn,  currentWord.correspondingBeat->time + currentAnimDuration)
 				}));
 		i++;
 	}

@@ -54,7 +54,7 @@ public:
 
 	static const int test = 1;
 
-	range(T _min, T _max) {
+	explicit range(T _min, T _max) {
 		min = new T(_min);
 		max = new T(_max);
 	}
