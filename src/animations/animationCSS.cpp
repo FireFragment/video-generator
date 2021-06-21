@@ -5,7 +5,7 @@ const map<animationCSS::easing::inEasingPreset, animationCSS::easing> animationC
 };
 
 const map<animationCSS::easing::outEasingPreset, animationCSS::easing> animationCSS::easing::outPresets = {
-	pair<animationCSS::easing::outEasingPreset, animationCSS::easing>(easeOut,  animationCSS::easing(range<double>(0.64, 0),range<double>(0.78, 0)))
+	pair<animationCSS::easing::outEasingPreset, animationCSS::easing>(easeOut,  animationCSS::easing(range<double>(0.22, 1),range<double>(0.36, 1)))
 };
 
 const string animationCSS::generateFillMode()
