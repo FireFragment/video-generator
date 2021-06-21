@@ -14,7 +14,7 @@ const string video::generateKeyframes(short startFrom)
 	// Appearing animations
 	unsigned short i = startFrom;
 	for (auto currentWord : words) {
-		animation anim(doubleCSSprop::props, animationType::appearing, 10);
+		animation anim(doubleCSSprop::props, animationType::appearing, style.animationStrength);
 		out += anim.generate("a" + to_string(i));
 		i++;
 	}
@@ -22,7 +22,7 @@ const string video::generateKeyframes(short startFrom)
 	// Disappearing animations
 	i = startFrom;
 	for (auto currentWord : words) {
-		animation anim(doubleCSSprop::props, animationType::disappearing, 10);
+		animation anim(doubleCSSprop::props, animationType::disappearing, style.animationStrength);
 		out += anim.generate("d" + to_string(i));
 		i++;
 	}

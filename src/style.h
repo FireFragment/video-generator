@@ -36,5 +36,10 @@ public:
 	/// <para>If is this value bigger than time from previous beat, accentingTransition will be used instead of normalTransition.</para>
 	/// </summary>
 	float maximumFreqForAccentingTrans = 0.1;
+	
+	/// <summary>
+	/// How strong animations in the video are.
+	/// </summary>
+	double animationStrength = 10;
 };
 
