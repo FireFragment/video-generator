@@ -28,10 +28,9 @@ const vector<doubleCSSprop> doubleCSSprop::props = {
 
 const float CSSprop::animateStrengthRandomness = 0.2;
 
-const string CSSprop::generate(const string val)
-{
-	return name + ":" + valPrefix + val + valPostfix + ";";
-}
+const string CSSprop::generate(const string val) { return generateBegin() + generateValue(val) + ";"; }
+const string CSSprop::generateBegin() { return name + ":"; }
+const string CSSprop::generateValue(const string val) { return valPrefix + val + valPostfix; }
 
 const string CSSprop::generateAnimated(string name, CSSpropAnimationData anim)
 {

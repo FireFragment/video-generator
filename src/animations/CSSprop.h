@@ -47,6 +47,9 @@ public:
 	string name;
 
 	const string generate(const string val);
+	/// <returns>eg. <example><c>opacity:</c></example></returns>
+	const string generateBegin();
+	const string generateValue(const string val);
 
 	/// <summary>
 	/// Generate @keyframes CSS notation.
@@ -129,7 +132,7 @@ public:
 	/// </summary>
 	/// <remarks>
 	///		If value of the property is technically unlimited, but too high and low values doesn't make sense
-	///		(eg. rotation, values above 360° works, but it's better to replace it with lower value), don't
+	///		(eg. rotation, values above 360ï¿½ works, but it's better to replace it with lower value), don't
 	///		leave the pointer NULL and set it to the highest and lowest values, which makes sense. 
 	/// </remarks>
 	range<double>* boundaries = NULL;
