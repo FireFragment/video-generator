@@ -49,8 +49,9 @@ animation::animation(vector<doubleCSSprop> aviableProps, animationType type, dou
 const string animation::generate(string name)
 {
 	string out = "@keyframes " + name + "{from{";
-	for (auto& i : *this) {
-		out += i->generate(*i->animation->animation.min) + "";
+	for (iterator it = this->begin(); it != end(); ++it) {
+		out += (*it)->generate(*(*it)->animation->animation.min) + "";
+		getPropsWithSameName(it);
 	}
 
 	if (type == animationType::appearing) {
@@ -83,10 +84,7 @@ const vector<animation::iterator> animation::getPropsWithSameName(iterator nameT
 {
 	vector<iterator> out;
 	for (iterator it = this->begin(); it != end(); ++it) {
-		if ( 
-			(*it)->name == (*nameToFind)->name && // Name is same
-			it != nameToFind // It isn't nameToFind itself 
-		) {
+		if ((*it)->name == (*nameToFind)->name) { // Name is same
 			out.push_back(it);
 		}
 	}
