@@ -78,3 +78,17 @@ void animation::add(CSSprop *toAdd)
 {
 	push_back(toAdd);
 }
+
+const vector<animation::iterator> animation::getPropsWithSameName(iterator nameToFind)
+{
+	vector<iterator> out;
+	for (iterator it = this->begin(); it != end(); ++it) {
+		if ( 
+			(*it)->name == (*nameToFind)->name && // Name is same
+			it != nameToFind // It isn't nameToFind itself 
+		) {
+			out.push_back(it);
+		}
+	}
+	return out;
+}

@@ -42,4 +42,13 @@ public:
 	/// Duration in seconds
 	/// </summary>
 	double duration = 0.5;
+
+private:
+
+	/// <summary>
+	/// Finds all props with same name as <paramref name="nameToFind"/>.
+	/// </summary>
+	/// <param name="nameToFind">Name of this prop is the subject of the search.</param>
+	/// <returns>All props with same name as <paramref name="nameToFind"/> (without <paramref name="nameToFind"/>) </returns>
+	const vector<iterator> getPropsWithSameName(iterator nameToFind);
 };
