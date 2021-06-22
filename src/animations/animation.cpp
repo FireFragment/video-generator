@@ -20,7 +20,7 @@ animation::animation(vector<doubleCSSprop> aviableProps, animationType type, dou
 		appearingProp = new doubleCSSprop(appearingProps[appearingPropIndex]);
 
 		appearingProp->animate(type);
-		push_back(appearingProp);
+		add(appearingProp);
 	}
 
 	// Props, where decorative isn't NULL (and also exclude appearingProp to avoid its overriding).
@@ -42,7 +42,7 @@ animation::animation(vector<doubleCSSprop> aviableProps, animationType type, dou
 			toAdd.animation->animation.swap();
 		}
 
-		push_back(new doubleCSSprop(toAdd));
+		add(new doubleCSSprop(toAdd));
 	}
 }
 
@@ -72,4 +72,9 @@ const string animation::generate(string name)
 
 	out += "}}";
 	return out;
+}
+
+void animation::add(CSSprop *toAdd)
+{
+	push_back(toAdd);
 }

@@ -31,6 +31,12 @@ public:
 	const string generate(string name);
 
 	/// <summary>
+	/// Add new property. Prefer instead of push_back.
+	/// </summary>
+	/// <param name="toAdd">Property to add.</param>
+	void add(CSSprop *toAdd);
+
+	/// <summary>
 	/// Duration in seconds
 	/// </summary>
 	double duration = 0.5;
