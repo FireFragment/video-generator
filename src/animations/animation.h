@@ -16,7 +16,9 @@ public:
 	/// </summary>
 	/// <param name="aviableProps">Avialable props to use (but not all of them will be likely used). Will be reanimated (so they has to be doubleCSSprop). If you want to animate some props manually, do it after creating object.</param>
 	/// <param name="type">Type of animation to be generated.</param>
-	animation(vector<doubleCSSprop> aviableProps = doubleCSSprop::props, animationType _type = animationType::accenting, double requestedStrength = 3);
+	animation(vector<doubleCSSprop> aviableProps, animationType _type = animationType::accenting, double requestedStrength = 3);
+
+	animation() {}
 
 	/// <returns>Calculated strength of the animation.</returns>
 	const double getStrength() {
