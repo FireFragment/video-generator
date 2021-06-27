@@ -20,7 +20,7 @@ animation::animation(vector<doubleCSSprop> aviableProps, animationType type, dou
 		appearingProp = new doubleCSSprop(appearingProps[appearingPropIndex]);
 
 		appearingProp->animate(type);
-		push_back(appearingProp);
+		add(appearingProp);
 	}
 
 	// Props, where decorative isn't NULL (and also exclude appearingProp to avoid its overriding).
@@ -42,15 +42,23 @@ animation::animation(vector<doubleCSSprop> aviableProps, animationType type, dou
 			toAdd.animation->animation.swap();
 		}
 
-		push_back(new doubleCSSprop(toAdd));
+		add(new doubleCSSprop(toAdd));
 	}
 }
 
+// TODO: Avoid duplicate prop assignments in output.
 const string animation::generate(string name)
 {
 	string out = "@keyframes " + name + "{from{";
-	for (auto& i : *this) {
-		out += i->generate(*i->animation->animation.min) + "";
+	for (iterator it = this->begin(); it != end(); ++it) {
+		out += (*it)->generateBegin();
+
+		vector<iterator> propsWithSameName = getPropsWithSameName(it);
+		for (vector<iterator>::iterator it2 = propsWithSameName.begin(); it2 != propsWithSameName.end(); ++it2) {
+			out += " " + (**it2)->generateValue(*(**it2)->animation->animation.min);
+		}
+
+		out += ";";
 	}
 
 	if (type == animationType::appearing) {
@@ -62,8 +70,15 @@ const string animation::generate(string name)
 	}
 
 	out += "}to{";
-	for (auto& i : *this) {
-		out += i->generate(*i->animation->animation.max) + "";
+	for (iterator it = this->begin(); it != end(); ++it) {
+		out += (*it)->generateBegin();
+
+		vector<iterator> propsWithSameName = getPropsWithSameName(it);
+		for (vector<iterator>::iterator it2 = propsWithSameName.begin(); it2 != propsWithSameName.end(); ++it2) {
+			out += " " + (**it2)->generateValue(*(**it2)->animation->animation.max);
+		}
+
+		out += ";";
 	}
 
 	if (type == animationType::disappearing) {
@@ -71,5 +86,21 @@ const string animation::generate(string name)
 	}
 
 	out += "}}";
+	return out;
+}
+
+void animation::add(CSSprop *toAdd)
+{
+	push_back(toAdd);
+}
+
+const vector<animation::iterator> animation::getPropsWithSameName(iterator nameToFind)
+{
+	vector<iterator> out;
+	for (iterator it = this->begin(); it != end(); ++it) {
+		if ((*it)->name == (*nameToFind)->name) { // Name is same
+			out.push_back(it);
+		}
+	}
 	return out;
 }

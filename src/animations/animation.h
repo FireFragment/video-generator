@@ -33,7 +33,22 @@ public:
 	const string generate(string name);
 
 	/// <summary>
+	/// Add new property. Prefer instead of push_back.
+	/// </summary>
+	/// <param name="toAdd">Property to add.</param>
+	void add(CSSprop *toAdd);
+
+	/// <summary>
 	/// Duration in seconds
 	/// </summary>
 	double duration = 0.5;
+
+private:
+
+	/// <summary>
+	/// Finds all props with same name as <paramref name="nameToFind"/>.
+	/// </summary>
+	/// <param name="nameToFind">Name of this prop is the subject of the search.</param>
+	/// <returns>All props with same name as <paramref name="nameToFind"/></returns>
+	const vector<iterator> getPropsWithSameName(iterator nameToFind);
 };

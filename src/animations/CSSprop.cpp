@@ -18,6 +18,12 @@ const vector<doubleCSSprop> doubleCSSprop::props = {
 		new range<double>(0.5, 2),
 		"scale(", ")"),
 	doubleCSSprop(
+		"transform", 5, "0",
+		new range<double>(-360, 360),
+		{ /*range<double>(0, 0.3)*/ },
+		new range<double>(-90, 90),
+		"rotate(", "deg)"),
+	doubleCSSprop(
 		"filter", 10, "0",
 		new range<double>(0, NULL),
 		{},
@@ -28,10 +34,9 @@ const vector<doubleCSSprop> doubleCSSprop::props = {
 
 const float CSSprop::animateStrengthRandomness = 0.2;
 
-const string CSSprop::generate(const string val)
-{
-	return name + ":" + valPrefix + val + valPostfix + ";";
-}
+const string CSSprop::generate(const string val) { return generateBegin() + generateValue(val) + ";"; }
+const string CSSprop::generateBegin() { return name + ":"; }
+const string CSSprop::generateValue(const string val) { return valPrefix + val + valPostfix; }
 
 const string CSSprop::generateAnimated(string name, CSSpropAnimationData anim)
 {
