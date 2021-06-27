@@ -90,7 +90,7 @@ void doubleCSSprop::animate(const animationType type, float strength)
 				helperFunctions::doubleToString(
 					range<double>(
 						minOrMaxOfDecorative,
-						stoi(inital)).avg(strength))));
+						stoi(inital)).avg(1-strength))));
 
 
 		}
