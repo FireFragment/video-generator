@@ -38,8 +38,6 @@ const vector<doubleCSSprop> doubleCSSprop::props = {
 	)
 };
 
-const float CSSprop::animateStrengthRandomness = 0.2;
-
 const string CSSprop::generate(const string val) { return generateBegin() + generateValue(val) + ";"; }
 const string CSSprop::generateBegin() { return name + ":"; }
 const string CSSprop::generateValue(const string val) { return valPrefix + val + valPostfix; }
@@ -90,14 +88,9 @@ void doubleCSSprop::animate(const animationType type, float strength)
 
 				// END
 				helperFunctions::doubleToString(
-					// Randomize a little bit
-					helperFunctions::doubleRandBetween(
-						range<double>::around(
-							// Main part
-							range<double>(
-								minOrMaxOfDecorative,
-								stoi(inital)).avg(strength),
-							CSSprop::animateStrengthRandomness)))));
+					range<double>(
+						minOrMaxOfDecorative,
+						stoi(inital)).avg(1-strength))));
 
 
 		}
