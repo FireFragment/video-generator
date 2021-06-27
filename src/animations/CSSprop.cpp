@@ -2,11 +2,17 @@
 
 const vector<doubleCSSprop> doubleCSSprop::props = {
 	doubleCSSprop(
-		"margin-left", 0.3, "0",
+		"transform", 0.3, "0",
 		new range<double>(-100, 100),
 		{/* range<double>(-150, -90), range<double>(150, 90) */},
 		new range<double>(-30, 30),
-		"", "vw"),
+		"translateX(", "vw)"),
+	doubleCSSprop(
+		"transform", 0.3, "0",
+		new range<double>(-100, 100),
+		{/* range<double>(-150, -90), range<double>(150, 90) */},
+		new range<double>(-30, 30),
+		"translateY(", "vh)"),
 	doubleCSSprop(
 		"opacity", 1, "1",
 		new range<double>(0, 1),
