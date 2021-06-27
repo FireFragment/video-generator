@@ -94,8 +94,6 @@ public:
 	/// </summary>
 	string inital = "0";
 
-	static const float animateStrengthRandomness;
-
 	CSSprop(const CSSprop& original) {
 		if (original.animation != NULL)
 			animation = new CSSpropAnimationData(*original.animation);
