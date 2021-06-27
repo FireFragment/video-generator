@@ -18,6 +18,12 @@ const vector<doubleCSSprop> doubleCSSprop::props = {
 		new range<double>(0.5, 2),
 		"scale(", ")"),
 	doubleCSSprop(
+		"transform", 5, "0",
+		new range<double>(-360, 360),
+		{ /*range<double>(0, 0.3)*/ },
+		new range<double>(-90, 90),
+		"rotate(", "deg)"),
+	doubleCSSprop(
 		"filter", 10, "0",
 		new range<double>(0, NULL),
 		{},
