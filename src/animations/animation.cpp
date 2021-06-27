@@ -36,7 +36,13 @@ animation::animation(vector<doubleCSSprop> aviableProps, animationType type, dou
 		doubleCSSprop toAdd = doubleCSSprop(accentingProps[toAddIndex]);
 		vector<doubleCSSprop>::iterator myBegin = accentingProps.begin();
 		accentingProps.erase(accentingProps.begin() + toAddIndex);
-		toAdd.animate(animationType::accenting);
+
+		toAdd.animate(
+			animationType::accenting,
+			// Set strength to rearmining strength or to random number between 0 and 1
+			min(
+				helperFunctions::doubleRandBetween(range<double>(0, 1)),
+				requestedStrength - getStrength()));
 
 		if (type == animationType::appearing) {
 			toAdd.animation->animation.swap();
