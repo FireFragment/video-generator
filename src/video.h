@@ -16,6 +16,7 @@ class video
 public:
 	/// <param name="text">represents text of new video.</param>
 	video(string text);
+	void setText(string text);
 	/// <returns>HTML code with result video containing CSS and JS. </returns>
 	string const generate();
 	vector <word> words;

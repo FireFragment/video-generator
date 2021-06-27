@@ -36,10 +36,20 @@ unsigned short int video::getNeededTransitionsCount()
 }
 
 video::video(string text) {
+	setText(text);
+}
+
+void video::setText(string text)
+{
 	vector <string> ::iterator it;
 	vector <string> textOfWords = helperFunctions::splitStringByDelimiters(text, { " " });
-	for (it = textOfWords.begin(); it != textOfWords.end(); ++it) {
-		words.push_back(*it);
+	unsigned short i = 0;
+
+	for (it = textOfWords.begin(); it != textOfWords.end(); ++it, ++i) {
+		if (words.size() < i)
+			words[i].text = *it;
+		else
+			words.push_back(*it);
 	}
 }
 
