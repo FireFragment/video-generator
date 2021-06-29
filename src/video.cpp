@@ -2,9 +2,17 @@
 
 const string video::generate() {
 	cout << "Analyzing music, please wait..." << endl;
-	beatGroup beats = helperFunctions::getBeats(style.musicURL, 3, getNeededTransitionsCount(), true);
+	if (beats.size() == 0) {
+		beats = helperFunctions::getBeats(style.musicURL, 3, getNeededTransitionsCount(), true);
+	}
+
 	assignBeatsToWords(&beats);
-	return "<!DOCTYPE html><html lang='en'><head><meta charset='utf - 8'><title>Video</title><script>var audio=new Audio('" + style.getEscapedMusicURL() + "');audio.play()</script><style>" + style.baseCSS + generateKeyframes() + "</style></head><body>" + generateHTML(beats) + "</body></html><!-- Generated with Maty1000's video generator. -->";
+	return "<!DOCTYPE html><html lang='en'><head><meta charset='utf - 8'><title>Video</title><script>var audio=new Audio('" + style.getEscapedMusicURL() + "');audio.play()</script><style>" + style.baseCSS + getKeyframes() + "</style></head><body>" + generateHTML(beats) + "</body></html><!-- Generated with Maty1000's video generator. -->";
+}
+
+const string video::getKeyframes()
+{
+	return keyframesCode == "" ? generateKeyframes() : keyframesCode;
 }
 
 const string video::generateKeyframes(short startFrom)
@@ -27,6 +35,7 @@ const string video::generateKeyframes(short startFrom)
 		i++;
 	}
 
+	keyframesCode = out;
 	return out;
 }
 
@@ -46,11 +55,15 @@ void video::setText(string text)
 	unsigned short i = 0;
 
 	for (it = textOfWords.begin(); it != textOfWords.end(); ++it, ++i) {
-		if (words.size() < i)
-			words[i].text = *it;
+		if (words.size() > i)
+			words[i].text = *it; // Overwrite value
 		else
-			words.push_back(*it);
+			words.push_back(*it); // Add value
 	}
+
+	// Remove extra NULLs.
+	if (words.size() > textOfWords.size())
+		words.erase(words.begin() + textOfWords.size(), words.end());
 }
 
 const string video::generateHTML(

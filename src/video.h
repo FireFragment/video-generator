@@ -29,6 +29,7 @@ public:
 		string disappearingAnimIdPrefix = "d", string disappearingAnimIdPostfix = "",
 		short startFrom = 1);
 	const string generateKeyframes(short startFrom = 1);
+	const string getKeyframes();
 
 	/// <param name="content">Body of the element</param>
 	/// <param name="element">Type of the element</param>
@@ -44,4 +45,7 @@ public:
 private:
 	/// <returns>Count of transitions in video.</returns>
 	unsigned short int getNeededTransitionsCount();
+
+	string keyframesCode = "";
+	beatGroup beats;
 };
