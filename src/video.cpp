@@ -91,7 +91,7 @@ const string video::generateHTML(
 				{
 					animationCSS(   appearingAnimIdPrefix + to_string(i) +    appearingAnimIdPostfix, currentAnimDuration, animationCSS::fillMode::backwards, animationCSS::easing::type::out, currentWord.correspondingBeat->time),
 					animationCSS(disappearingAnimIdPrefix + to_string(i) + disappearingAnimIdPostfix, currentAnimDuration, animationCSS::fillMode:: forwards, animationCSS::easing::type::in,  currentWord.correspondingBeat->time + currentAnimDuration)
-				}));
+				}) + ";font-size: " + helperFunctions::doubleToString(currentWord.correspondingBeat->strength * 250 + 100) + "%");
 		i++;
 	}
 	return out;
