@@ -16,6 +16,7 @@ class video
 public:
 	/// <param name="text">represents text of new video.</param>
 	video(string text);
+	void setText(string text);
 	/// <returns>HTML code with result video containing CSS and JS. </returns>
 	string const generate();
 	vector <word> words;
@@ -28,6 +29,7 @@ public:
 		string disappearingAnimIdPrefix = "d", string disappearingAnimIdPostfix = "",
 		short startFrom = 1);
 	const string generateKeyframes(short startFrom = 1);
+	const string getKeyframes();
 
 	/// <param name="content">Body of the element</param>
 	/// <param name="element">Type of the element</param>
@@ -43,4 +45,7 @@ public:
 private:
 	/// <returns>Count of transitions in video.</returns>
 	unsigned short int getNeededTransitionsCount();
+
+	string keyframesCode = "";
+	beatGroup beats;
 };
