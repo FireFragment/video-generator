@@ -86,7 +86,7 @@ const string video::generateHTML(
 		currentAnimDuration = abs(currentAnimDuration);
 		currentAnimDuration /= 2;
 
-		out += generateHTMLElem(currentWord.text, "h1",
+		out += generateHTMLElem(currentWord.text, "div",
 			generateAnimationCSS(
 				{
 					animationCSS(   appearingAnimIdPrefix + to_string(i) +    appearingAnimIdPostfix, currentAnimDuration, animationCSS::fillMode::backwards, animationCSS::easing::type::out, currentWord.correspondingBeat->time),
