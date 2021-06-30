@@ -22,6 +22,11 @@ const string video::generateKeyframes(short startFrom)
 	// Appearing animations
 	unsigned short i = startFrom;
 	for (auto currentWord : words) {
+
+		// If there are more words than beats.
+		if (currentWord.correspondingBeat == beats.end() - 1)
+			break;
+
 		animation anim(doubleCSSprop::props, animationType::appearing, style.animationStrength * currentWord.correspondingBeat->strength);
 		out += anim.generate("a" + to_string(i));
 		i++;
@@ -30,6 +35,11 @@ const string video::generateKeyframes(short startFrom)
 	// Disappearing animations
 	i = startFrom;
 	for (auto currentWord : words) {
+
+		// If there are more words than beats.
+		if (currentWord.correspondingBeat == beats.end() - 1)
+			break;
+
 		animation anim(doubleCSSprop::props, animationType::disappearing, style.animationStrength * currentWord.correspondingBeat->strength);
 		out += anim.generate("d" + to_string(i));
 		i++;
@@ -76,21 +86,27 @@ const string video::generateHTML(
 	string out;
 	unsigned short i = startFrom;
 
-	for (auto const& currentWord : words) {
-		double currentAnimDuration = currentWord.correspondingBeat->time;
+	for (vector<word>::iterator currentWord = words.begin(); currentWord != words.end(); ++currentWord) {
+
+		// If there are more words than beats.
+		if (currentWord->correspondingBeat == beats.end() - 1)
+			break;
+
+
+		double currentAnimDuration = currentWord->correspondingBeat->time;
 
 		// Validate currentWord.correspondingBeat-1 only if it isn't at beggining of the vector.
-		if (currentWord.correspondingBeat != beats.end()) {
-			currentAnimDuration -= (currentWord.correspondingBeat + 1)->time;
+		if (currentWord->correspondingBeat != beats.end()) {
+			currentAnimDuration -= (currentWord->correspondingBeat + 1)->time;
 		}
 		currentAnimDuration = abs(currentAnimDuration);
 		currentAnimDuration /= 2;
 
-		out += generateHTMLElem(currentWord.text, "h1",
+		out += generateHTMLElem(currentWord->text, "h1",
 			generateAnimationCSS(
 				{
-					animationCSS(   appearingAnimIdPrefix + to_string(i) +    appearingAnimIdPostfix, currentAnimDuration, animationCSS::fillMode::backwards, animationCSS::easing::type::out, currentWord.correspondingBeat->time),
-					animationCSS(disappearingAnimIdPrefix + to_string(i) + disappearingAnimIdPostfix, currentAnimDuration, animationCSS::fillMode:: forwards, animationCSS::easing::type::in,  currentWord.correspondingBeat->time + currentAnimDuration)
+					animationCSS(   appearingAnimIdPrefix + to_string(i) +    appearingAnimIdPostfix, currentAnimDuration, animationCSS::fillMode::backwards, animationCSS::easing::type::out, currentWord->correspondingBeat->time),
+					animationCSS(disappearingAnimIdPrefix + to_string(i) + disappearingAnimIdPostfix, currentAnimDuration, animationCSS::fillMode:: forwards, animationCSS::easing::type::in,  currentWord->correspondingBeat->time + currentAnimDuration)
 				}));
 		i++;
 	}

@@ -44,8 +44,7 @@ beatGroup helperFunctions::getBeats(string url, float sensitivity, unsigned shor
 
 	beat localLastBeatOccured = beat();
 	beatGroup beats;
-	while (beats.size() <= count) {
-
+	while (beats.size() <= count && BeatDetector::Instance()->areWePlaying) {
 		BeatDetector::Instance()->update();
 		Sleep(10);
 		int lastB = BeatDetector::Instance()->getLastBeat().time;

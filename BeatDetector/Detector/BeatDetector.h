@@ -49,6 +49,7 @@ public:
 		return instance;
 	}
 	beat lastBeatRegistered;
+	bool areWePlaying;
 private:
 	BeatDetector(){};
 	static BeatDetector* instance;
@@ -60,7 +61,6 @@ private:
 	float sampleRate;
 	unsigned int seconds;
 	unsigned int minutes;
-	bool areWePlaying;
 	float* previousFFT;
 	float specFlux;
 	float difference;
