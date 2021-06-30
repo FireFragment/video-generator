@@ -24,7 +24,7 @@ public:
 
 	const string generateHTML(
 		beatGroup& beats,
-		string element = "h1", 
+		string element = "div", 
 		string appearingAnimIdPrefix    = "a", string appearingAnimIdPostfix    = "",
 		string disappearingAnimIdPrefix = "d", string disappearingAnimIdPostfix = "",
 		short startFrom = 1);
