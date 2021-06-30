@@ -7,9 +7,9 @@ public:
 	/// <summary>
 	/// Time from song begin in miliseconds
 	/// </summary>
-	float time;
+	float time = 0;
 	float strength = 1;
-	float threshold;
+	float threshold = 1;
 	/// <summary>
 	/// Creates new beat at time.
 	/// </summary>
