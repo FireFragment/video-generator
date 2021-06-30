@@ -3,7 +3,7 @@
 const string video::generate() {
 	cout << "Analyzing music, please wait..." << endl;
 	if (beats.size() == 0) {
-		beats = helperFunctions::getBeats(style.musicURL, 3, getNeededTransitionsCount(), true);
+		beats = helperFunctions::getBeats(style.musicURL, 1.5, getNeededTransitionsCount(), true);
 	}
 
 	assignBeatsToWords(&beats);
