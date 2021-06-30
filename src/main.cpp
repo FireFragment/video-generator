@@ -28,15 +28,18 @@ int main()
 	// Final
 	// =====
 
-	cout << "Enter your text: \n ";
-	string text; 
-	getline(cin, text);
+	cout << "Enter your text: \n";
+	while (true) {
+		string text;
+		getline(cin, text);
 
-	OutFile = ofstream("generated.html");
-	video.setText(text);
+		OutFile = ofstream("generated.html");
+		video.setText(text);
 
-	OutFile << video.generate();
+		OutFile << video.generate();
 
-	OutFile.close();
-	system("generated.html");
+		OutFile.close();
+		system("generated.html");
+		cout << "If you don't like the result, try it with the new text or restart the program to analyze music agin:\n";
+	}
 }
